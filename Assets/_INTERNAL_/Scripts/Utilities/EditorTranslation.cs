@@ -13,6 +13,7 @@ namespace _INTERNAL_.Scripts.Utilities
         public const string LOCALIZATION_DIRECTORY = "Localization";
         public const string EDITOR_LANGUAGE_KEY = "Editor.kEditorLocale";
         private static readonly IDictionary<SystemLanguage, POCatalog> Catalogs = new Dictionary<SystemLanguage, POCatalog>();
+        private static SystemLanguage Language;
 
         /// <summary>
         /// ISO 639-1 language codes mapped to Unity's enum.
@@ -65,7 +66,8 @@ namespace _INTERNAL_.Scripts.Utilities
                 {"", SystemLanguage.Unknown},
             });
 
-        static EditorTranslation()
+        [InitializeOnLoadMethod]
+        public static void Init()
         {
             ReloadLanguages();
         }
@@ -80,6 +82,8 @@ namespace _INTERNAL_.Scripts.Utilities
             {
                 ParseFile(file, parser);
             }
+
+            Language = GetLanguage();
         }
 
         private static void ParseFile(string file, POParser parser)
@@ -116,12 +120,14 @@ namespace _INTERNAL_.Scripts.Utilities
 
         public static string Get(string key)
         {
-            if (!Catalogs.TryGetValue(GetLanguage(), out var catalog))
+            if (!Catalogs.TryGetValue(Language, out var catalog))
             {
                 return key;
             }
             return catalog[new POKey(key)][0];
         }
+
+        public static string _(string key) => Get(key);
 
         public static SystemLanguage GetLanguage()
         {

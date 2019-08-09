@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(BulletAttribute))]
 public class BulletAttrInspector : InspectorBase
 {
-	private string explanation = "When this object touches another that has the script DestroyForPoints, the Player will get a point.";
+	private string explanation = _("When this object touches another that has the script DestroyForPoints, the Player will get a point.");
 
 	public override void OnInspectorGUI()
 	{
