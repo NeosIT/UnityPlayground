@@ -2,13 +2,14 @@
 using UnityEditor;
 using System.Collections;
 using UnityEditorInternal;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ConditionKeyPress))]
 public class ConditionKeyPressInspector : ConditionInspectorBase
 {
 	private bool t;
-	private string explanation = "Use this script to perform an action when a button is pressed, released, or as long as it's kept pressed (in this case you get to choose the frequency).";
+	private string explanation = _("Use this script to perform an action when a button is pressed, released, or as long as it's kept pressed (in this case you get to choose the frequency).");
 
 	public override void OnInspectorGUI()
 	{
@@ -16,7 +17,7 @@ public class ConditionKeyPressInspector : ConditionInspectorBase
 
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
-		
+
 		/*
 		Texture2D headerBackground;
 		GUIStyle g = new GUIStyle();
@@ -52,7 +53,7 @@ public class ConditionKeyPressInspector : ConditionInspectorBase
         EditorGUILayout.EndVertical ();
         EditorGUILayout.EndVertical ();
 		*/
- 		
+
 		GUILayout.Space(10);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("happenOnlyOnce"));
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 #if DEFAULT_INSPECTORS
 
@@ -20,7 +21,7 @@ public class SpriteRendererInspector : Editor
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Sprite"));
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Color"));
 		EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.PrefixLabel("Flip");
+			EditorGUILayout.PrefixLabel(_("Flip"));
 			EditorGUIUtility.labelWidth = 12f;
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("m_FlipX"), new GUIContent("X"), GUILayout.ExpandWidth(false));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("m_FlipY"), new GUIContent("Y"), GUILayout.ExpandWidth(false));
@@ -41,20 +42,20 @@ public class SpriteRendererInspector : Editor
 				if((SpriteTileMode)serializedObject.FindProperty("m_SpriteTileMode").enumValueIndex == SpriteTileMode.Adaptive)
 				{
 					EditorGUI.indentLevel++;
-						EditorGUILayout.PropertyField(serializedObject.FindProperty("m_AdaptiveModeThreshold"), new GUIContent("Adaptability"));
+						EditorGUILayout.PropertyField(serializedObject.FindProperty("m_AdaptiveModeThreshold"), new GUIContent(_("Adaptability")));
 					EditorGUI.indentLevel--;
 				}
 				break;
 		}
 		EditorGUI.indentLevel--;
 
-		showExtras = EditorGUILayout.Foldout(showExtras, new GUIContent("Visibility Options"));
+		showExtras = EditorGUILayout.Foldout(showExtras, new GUIContent(_("Visibility Options")));
 		if(showExtras)
 		{
 			DrawSortingLayers();
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("m_MaskInteraction"));
 		}
-		
+
 		serializedObject.ApplyModifiedProperties();
 	}
 
@@ -74,19 +75,19 @@ public class SpriteRendererInspector : Editor
 		int oldLayerIndex = System.Array.IndexOf(sortingLayerNames, oldName);
 
 		// Show the popup for the names
-		int newLayerIndex = EditorGUILayout.Popup("Sorting Layer", oldLayerIndex, sortingLayerNames);
+		int newLayerIndex = EditorGUILayout.Popup(_("Sorting Layer"), oldLayerIndex, sortingLayerNames);
 
 		// If the index changes, look up the ID for the new index to store as the new ID
 		if (newLayerIndex != oldLayerIndex) {
-			Undo.RecordObject(renderer, "Edit Sorting Layer");
+			Undo.RecordObject(renderer, _("Edit Sorting Layer"));
 			renderer.sortingLayerID = SortingLayer.NameToID(sortingLayerNames[newLayerIndex]);
 			EditorUtility.SetDirty(renderer);
 		}
 
 		// Expose the manual sorting order
-		int newSortingLayerOrder = EditorGUILayout.IntField("Order in Layer", renderer.sortingOrder);
+		int newSortingLayerOrder = EditorGUILayout.IntField(_("Order in Layer"), renderer.sortingOrder);
 		if (newSortingLayerOrder != renderer.sortingOrder) {
-			Undo.RecordObject(renderer, "Edit Sorting Order");
+			Undo.RecordObject(renderer, _("Edit Sorting Order"));
 			renderer.sortingOrder = newSortingLayerOrder;
 			EditorUtility.SetDirty(renderer);
 		}

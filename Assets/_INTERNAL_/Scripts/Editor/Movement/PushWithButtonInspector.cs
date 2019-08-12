@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(Push))]
 public class PushInspector : InspectorBase
 {
-	private string explanation = "The GameObject will move at the push of a button, as if a thruster or an invisible force was pushing it.";
-	private string absoluteTip = "TIP: The GameObject will always move in the direction chosen regardless of its orientation.";
-	private string relativeTip = "TIP: The GameObject will move in the direction chosen relative to its orientation.";
+	private string explanation = _("The GameObject will move at the push of a button, as if a thruster or an invisible force was pushing it.");
+	private string absoluteTip = _("TIP: The GameObject will always move in the direction chosen regardless of its orientation.");
+	private string relativeTip = _("TIP: The GameObject will move in the direction chosen relative to its orientation.");
 
 	public override void OnInspectorGUI()
 	{

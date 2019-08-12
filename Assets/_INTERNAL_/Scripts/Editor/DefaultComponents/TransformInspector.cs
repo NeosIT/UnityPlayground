@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 #if DEFAULT_INSPECTORS
 
@@ -38,9 +39,9 @@ public class TransformInspector : Editor
 		style.margin = new RectOffset(0,0,0,0);
 		style.padding = new RectOffset(3,2,1,1);
 		style.normal.textColor = new Color(.9f,.9f,.9f);
-		
+
 		EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.PrefixLabel("Position");
+			EditorGUILayout.PrefixLabel(_("Position"));
 			EditorGUIUtility.labelWidth = 12f;
 			EditorGUIUtility.fieldWidth = 10f;
 			style.normal.background = red;
@@ -65,7 +66,7 @@ public class TransformInspector : Editor
 		localRotation = serializedObject.FindProperty("m_LocalRotation").quaternionValue;
 		localEulerAngles = localRotation.eulerAngles;
 		EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.PrefixLabel("Rotation");
+			EditorGUILayout.PrefixLabel(_("Rotation"));
 			EditorGUIUtility.labelWidth = 12f;
 			EditorGUIUtility.fieldWidth = 10f;
 			style.normal.background = blue;
@@ -83,7 +84,7 @@ public class TransformInspector : Editor
 		EditorGUILayout.EndHorizontal();
 
 		EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.PrefixLabel("Scale");
+			EditorGUILayout.PrefixLabel(_("Scale"));
 			EditorGUIUtility.labelWidth = 12f;
 			EditorGUIUtility.fieldWidth = 10f;
 			style.normal.background = red;

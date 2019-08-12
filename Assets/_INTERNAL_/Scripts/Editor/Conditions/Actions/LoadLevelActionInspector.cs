@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(LoadLevelAction))]
 public class LoadLevelActionInspector : InspectorBase
 {
-	private string explanation = "Use this script to restart the level, or load another one (load another Unity scene).";
-	private string sceneWarning = "WARNING: Make sure the scene is enabled in the Build Settings scenes list.";
-	private string sceneInfo = "WARNING; To add a new level, save a Unity scene and then go to File > Build Settings... and add the scene to the list.";
+	private string explanation = _("Use this script to restart the level, or load another one (load another Unity scene).");
+	private string sceneWarning = _("WARNING: Make sure the scene is enabled in the Build Settings scenes list.");
+	private string sceneInfo = _("WARNING; To add a new level, save a Unity scene and then go to File > Build Settings... and add the scene to the list.");
 
 	public override void OnInspectorGUI()
 	{
@@ -24,18 +25,18 @@ public class LoadLevelActionInspector : InspectorBase
 
 			//get available scene names and clean the names
 			string[] sceneNames = new string[EditorBuildSettings.scenes.Length + 1];
-			sceneNames[0] = "RELOAD LEVEL";
+			sceneNames[0] = _("RELOAD LEVEL");
 			int i = 1;
 			foreach(EditorBuildSettingsScene s in EditorBuildSettings.scenes)
 			{
 				int lastSlash = s.path.LastIndexOf("/");
 				string shortPath = s.path.Substring(lastSlash+1, s.path.Length-7-lastSlash);
 				sceneNames[i] = shortPath;
-				
+
 				if(shortPath == sceneNameProperty)
 				{
 					sceneId = i;
-					
+
 					if(!s.enabled)
 					{
 						displayWarning = true;
@@ -45,9 +46,9 @@ public class LoadLevelActionInspector : InspectorBase
 				i++;
 			}
 
-			
+
 			//Display the selector
-			sceneId = EditorGUILayout.Popup("Scene to load", sceneId, sceneNames);
+			sceneId = EditorGUILayout.Popup(_("Scene to load"), sceneId, sceneNames);
 
 			if(displayWarning)
 			{
@@ -65,7 +66,7 @@ public class LoadLevelActionInspector : InspectorBase
 		}
 		else
 		{
-			EditorGUILayout.Popup("Scene to load", 0, new string[]{"No scenes available!"});
+			EditorGUILayout.Popup(_("Scene to load"), 0, new string[]{_("No scenes available!")});
 			EditorGUILayout.HelpBox(sceneInfo, MessageType.Warning);
 		}
 

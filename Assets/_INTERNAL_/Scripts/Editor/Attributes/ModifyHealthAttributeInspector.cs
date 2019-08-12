@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ModifyHealthAttribute))]
 public class ModifyHealthAttributeInspector : InspectorBase
 {
-	private string explanation = "This GameObject will damage or heal other GameObjects on impact (only if they use the HealthSystemAttribute). Negative values mean damage, positive values mean healing (like a medipack).";
+	private string explanation = _("This GameObject will damage or heal other GameObjects on impact (only if they use the HealthSystemAttribute). Negative values mean damage, positive values mean healing (like a medipack).");
 
 	public override void OnInspectorGUI()
 	{
@@ -21,16 +22,16 @@ public class ModifyHealthAttributeInspector : InspectorBase
 		if(serializedObject.FindProperty("healthChange").intValue < 0)
 		{
 			style.normal.textColor = Color.red;
-			EditorGUILayout.LabelField("This object will damage on impact", style);
+			EditorGUILayout.LabelField(_("This object will damage on impact"), style);
 		}
 		else if(serializedObject.FindProperty("healthChange").intValue > 0)
 		{
 			style.normal.textColor = Color.blue;
-			EditorGUILayout.LabelField("This object will heal on impact", style);
+			EditorGUILayout.LabelField(_("This object will heal on impact"), style);
 		}
 		else
 		{
-			EditorGUILayout.LabelField("This object will have no effect");
+			EditorGUILayout.LabelField(_("This object will have no effect"));
 		}
 	}
 }

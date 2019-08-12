@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 #if DEFAULT_INSPECTORS
 
@@ -29,8 +30,8 @@ public class CameraInspector : Editor
 
 		EditorGUILayout.Separator();
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_BackGroundColor"), new GUIContent("Background Color"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("orthographic size"), new GUIContent("Frame Size"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_BackGroundColor"), new GUIContent(_("Background Color")));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("orthographic size"), new GUIContent(_("Frame Size")));
 		EditorGUILayout.Separator();
 
 		//check if Camera Follow script is already present
@@ -40,7 +41,7 @@ public class CameraInspector : Editor
 		}
 
 		//button will be disabled if the script is already on this object
-		if(GUILayout.Button("Add Camera Follow script"))
+		if(GUILayout.Button(_("Add Camera Follow script")))
 		{
 			go.AddComponent<CameraFollow>();
 		}
@@ -49,7 +50,7 @@ public class CameraInspector : Editor
 
 		serializedObject.ApplyModifiedProperties();
 	}
-	
+
 }
 
 #endif

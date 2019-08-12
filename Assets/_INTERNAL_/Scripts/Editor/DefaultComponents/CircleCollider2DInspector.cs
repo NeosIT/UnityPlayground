@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 #if DEFAULT_INSPECTORS
 
@@ -16,8 +17,8 @@ public class CircleCollider2DInspector : Collider2DInspectorBase
 
 		EditorGUILayout.Separator();
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Radius"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_IsTrigger"), new GUIContent("Is Trigger", triggerMessage));
-		
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_IsTrigger"), new GUIContent(_("Is Trigger"), triggerMessage));
+
 		base.ShowExtrasBlock(new string[]{"m_Material", "m_Offset", "m_UsedByEffector"});
 
 		serializedObject.ApplyModifiedProperties();

@@ -2,13 +2,14 @@
 using System.Collections;
 using UnityEditor;
 using UnityEditorInternal;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(Patrol))]
 public class PatrolInspector : InspectorBase
 {
-	private string explanation = "The object moves through a series of positions. This can be used for patrolling characters.";
-	private string emptyArrayWarning = "The list of waypoints is empty, so the GameObject will not move.";
+	private string explanation = _("The object moves through a series of positions. This can be used for patrolling characters.");
+	private string emptyArrayWarning = _("The list of waypoints is empty, so the GameObject will not move.");
 
 	private ReorderableList list;
 	Patrol patrolScript;
@@ -22,7 +23,7 @@ public class PatrolInspector : InspectorBase
 		patrolScript = (Patrol)target;
 
 		//called for every element that has to be drawn in the ReorderableList
-		list.drawElementCallback =  
+		list.drawElementCallback =
 			(Rect rect, int index, bool isActive, bool isFocused) => {
 			SerializedProperty element = list.serializedProperty.GetArrayElementAtIndex(index);
 			rect.y += 2;
@@ -30,13 +31,13 @@ public class PatrolInspector : InspectorBase
 			EditorGUI.PropertyField(r, element, GUIContent.none, false);
 		};
 
-		list.onAddCallback = (ReorderableList l) => { 
+		list.onAddCallback = (ReorderableList l) => {
 			var index = l.serializedProperty.arraySize;
-			
+
 			//make the array longer, and point the index at the new end
 			l.serializedProperty.arraySize++;
 			l.index = index;
-			
+
 			var element = l.serializedProperty.GetArrayElementAtIndex(index);
 			int previousIndex = (index == 0) ? 0 : index-1; //protection against a zero-length array
 			element.vector2Value = l.serializedProperty.GetArrayElementAtIndex(previousIndex).vector2Value + Vector2.one; //create new point, slightly offset
@@ -45,7 +46,7 @@ public class PatrolInspector : InspectorBase
 
 		//draws the header of the ReorderableList
 		list.drawHeaderCallback = (Rect rect) => {
-			EditorGUI.LabelField(rect, "Stops");
+			EditorGUI.LabelField(rect, _("Stops"));
 		};
 	}
 
@@ -82,7 +83,7 @@ public class PatrolInspector : InspectorBase
 
 		//Button to reset all waypoints
 		EditorGUILayout.Space();
-		if(GUILayout.Button("Reset Waypoints"))
+		if(GUILayout.Button(_("Reset Waypoints")))
 		{
 			patrolScript.Reset();
 			EditorApplication.Beep();
@@ -97,10 +98,10 @@ public class PatrolInspector : InspectorBase
 			GUILayout.Space(5);
 			EditorGUILayout.HelpBox(emptyArrayWarning, MessageType.Warning);
 		}
-		
+
 		GUILayout.Space(5);
-		GUILayout.Label("Orientation", EditorStyles.boldLabel);
-		bool orientToDirectionTemp = EditorGUILayout.Toggle("Orient to direction", serializedObject.FindProperty("orientToDirection").boolValue);
+		GUILayout.Label(_("Orientation"), EditorStyles.boldLabel);
+		bool orientToDirectionTemp = EditorGUILayout.Toggle(_("Orient to direction"), serializedObject.FindProperty("orientToDirection").boolValue);
 		if(orientToDirectionTemp)
 		{
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("lookAxis"));
@@ -109,7 +110,7 @@ public class PatrolInspector : InspectorBase
 
 		serializedObject.ApplyModifiedProperties();
 	}
-	
+
 
 	//Draw handle gizmos in the scene in Edit Mode to move waypoints around, little blue dots in Play Mode
 	private void OnSceneGUI()
@@ -117,19 +118,19 @@ public class PatrolInspector : InspectorBase
 		Vector3 lastPos = patrolScript.transform.position;
 		Handles.color = new Color32(33,150,243,255);
 		Vector3 orientation;
-		
+
 		for(int i=0; i<patrolScript.waypoints.Length; i++)
 		{
 			if(!Application.isPlaying)
 			{
 				EditorGUI.BeginChangeCheck();
 				Vector3 gizmoPos = Handles.PositionHandle(patrolScript.waypoints[i], Quaternion.identity);
-				
+
 				//Draws a dotted line and arrow pointing from one stop to the next
 				orientation = (gizmoPos-lastPos).normalized;
 				Handles.DrawDottedLine(lastPos, gizmoPos, 8f);
 				Handles.ArrowHandleCap(0, gizmoPos-(orientation * 1.2f), Quaternion.LookRotation(orientation, -Vector3.forward) , 1f, EventType.Repaint);
-			
+
 				if(EditorGUI.EndChangeCheck())
 				{
 					patrolScript.waypoints[i] = gizmoPos;
@@ -150,7 +151,7 @@ public class PatrolInspector : InspectorBase
 		{
 			Handles.DrawDottedLine(lastPos, patrolScript.transform.position, 8f);
 		}
-		
+
 		//Draw an extra arrow that reconnects to the starting position
 		orientation = (patrolScript.transform.position-lastPos).normalized;
 		Handles.ArrowHandleCap(0, patrolScript.transform.position-(orientation * 2f), Quaternion.LookRotation(orientation, -Vector3.forward), 1f, EventType.Repaint);

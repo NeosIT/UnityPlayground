@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(FollowTarget))]
 public class FollowTargetInspector : InspectorBase
 {
-	private string explanation = "This GameObject will pursue a target constantly.";
+	private string explanation = _("This GameObject will pursue a target constantly.");
 
 	public override void OnInspectorGUI()
 	{
@@ -23,7 +24,7 @@ public class FollowTargetInspector : InspectorBase
 
 		SerializedProperty lookAtTargetProperty = serializedObject.FindProperty("lookAtTarget");
 
-		lookAtTargetProperty.boolValue = EditorGUILayout.BeginToggleGroup("Look at target", lookAtTargetProperty.boolValue);
+		lookAtTargetProperty.boolValue = EditorGUILayout.BeginToggleGroup(_("Look at target"), lookAtTargetProperty.boolValue);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("useSide"));
 		EditorGUILayout.EndToggleGroup();
 

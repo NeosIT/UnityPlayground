@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(TeleportAction))]
 public class TeleportActionInspector : InspectorBase
 {
-	private string explanation = "Use this script to teleport this or another object to a new location.";
-	private string objectWarning = "WARNING: If you don't assign a GameObject, this GameObject will be teleported!";
+	private string explanation = _("Use this script to teleport this or another object to a new location.");
+	private string objectWarning = _("WARNING: If you don't assign a GameObject, this GameObject will be teleported!");
 
 	public override void OnInspectorGUI()
 	{

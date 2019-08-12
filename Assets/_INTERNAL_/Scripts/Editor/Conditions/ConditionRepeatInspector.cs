@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ConditionRepeat))]
 public class ConditionRepeatInspector : ConditionInspectorBase
 {
-	private string explanation = "Use this script to perform an action repeatedly.";
+	private string explanation = _("Use this script to perform an action repeatedly.");
 
 	public override void OnInspectorGUI()
 	{

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ConditionCollision))]
 public class ConditionCollisionInspector : ConditionInspectorBase
 {
-	private string explanation = "Use this script to perform an action when this GameObject collides with another.";
+	private string explanation = _("Use this script to perform an action when this GameObject collides with another.");
 
 	public override void OnInspectorGUI()
 	{

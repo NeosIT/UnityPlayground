@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 #if DEFAULT_INSPECTORS
 
@@ -20,11 +21,11 @@ public class Rigidbody2DInspector : Editor
 		//EditorGUILayout.LabelField("Physical Properties", EditorStyles.boldLabel);
 
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Mass"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_LinearDrag"), new GUIContent("Friction"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_AngularDrag"), new GUIContent("Angular Friction"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_GravityScale"), new GUIContent("Gravity"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_LinearDrag"), new GUIContent(_("Friction")));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_AngularDrag"), new GUIContent(_("Angular Friction")));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_GravityScale"), new GUIContent(_("Gravity")));
 		EditorGUILayout.Separator();
-		
+
 		showConstraints = EditorGUILayout.Foldout(showConstraints, new GUIContent("Constraints"));
 		if(showConstraints)
 		{
@@ -40,13 +41,13 @@ public class Rigidbody2DInspector : Editor
 				//draw the checkboxes
 				EditorGUI.indentLevel++;
 				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.PrefixLabel("Freeze Position");
+				EditorGUILayout.PrefixLabel(_("Freeze Position"));
 				xConstraint = GUILayout.Toggle(xConstraint, "X", GUILayout.ExpandWidth(false));
 				yConstraint = GUILayout.Toggle(yConstraint, "Y", GUILayout.ExpandWidth(false));
 				EditorGUILayout.EndHorizontal();
 
 				EditorGUILayout.BeginHorizontal();
-				EditorGUILayout.PrefixLabel("Freeze Rotation");
+				EditorGUILayout.PrefixLabel(_("Freeze Rotation"));
 				rotConstraint = GUILayout.Toggle(rotConstraint, "Z");
 				EditorGUILayout.EndHorizontal();
 				EditorGUI.indentLevel--;
@@ -55,7 +56,7 @@ public class Rigidbody2DInspector : Editor
 				constraints = xConstraint ? RigidbodyConstraints2D.FreezePositionX : RigidbodyConstraints2D.None;
 				if(yConstraint) constraints |= RigidbodyConstraints2D.FreezePositionY;
 				if(rotConstraint) constraints |= RigidbodyConstraints2D.FreezeRotation;
-				
+
 				//write the property back
 				if(oldConstraints != constraints)
 				{
@@ -64,7 +65,7 @@ public class Rigidbody2DInspector : Editor
 			}
 			else
 			{
-				EditorGUILayout.HelpBox("Select one GameObject at a time to modify constraints", MessageType.Warning);
+				EditorGUILayout.HelpBox(_("Select one GameObject at a time to modify constraints"), MessageType.Warning);
 			}
 		}
 

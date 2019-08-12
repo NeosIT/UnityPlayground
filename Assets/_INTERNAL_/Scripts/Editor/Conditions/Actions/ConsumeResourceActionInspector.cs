@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ConsumeResourceAction))]
 public class ConsumeResourceActionInspector : ConditionInspectorBase
 {
-	private string explanation = "Use this script to check if the player has enough of a specific resource. If they have it, it will be removed from the Player's inventory.";
+	private string explanation = _("Use this script to check if the player has enough of a specific resource. If they have it, it will be removed from the Player's inventory.");
 	private InventoryResources repository;
 
 	private new void OnEnable()
@@ -25,9 +26,9 @@ public class ConsumeResourceActionInspector : ConditionInspectorBase
 		//draw the popup that displays the names of Resource types, taken from the "InventoryResources" ScriptableObject
 		SerializedProperty resourceIndexProp = serializedObject.FindProperty("checkFor");
 		int chosenType = resourceIndexProp.intValue; //take the int value from the property
-		
+
 		EditorGUILayout.BeginHorizontal();
-		EditorGUILayout.PrefixLabel("Type of Resource");
+		EditorGUILayout.PrefixLabel(_("Type of Resource"));
 		chosenType = EditorGUILayout.Popup(chosenType, repository.GetResourceTypes(), GUILayout.ExpandWidth(false));
 		EditorGUILayout.EndHorizontal();
 
@@ -37,7 +38,7 @@ public class ConsumeResourceActionInspector : ConditionInspectorBase
 
 		GUILayout.Space(10);
 		//Display a button to jump to the "InventoryResources" ScriptableObject
-		if(GUILayout.Button("Add/Remove types"))
+		if(GUILayout.Button(_("Add/Remove types")))
 		{
 			Selection.activeObject = repository;
 		}

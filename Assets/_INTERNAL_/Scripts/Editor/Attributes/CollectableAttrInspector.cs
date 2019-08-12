@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(CollectableAttribute))]
 public class CollectableAttrInspector : InspectorBase
 {
-	private string explanation = "When the Player touches this object, it will be awarded one or more points.";
+	private string explanation = _("When the Player touches this object, it will be awarded one or more points.");
 
 	public override void OnInspectorGUI()
 	{

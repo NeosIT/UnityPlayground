@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CustomEditor(typeof(UIScript))]
 public class UIScriptInspector : InspectorBase
 {
-	private string explanation = "Use the UI to visualise points and health for the players.";
-	private string lifeReminder = "Don't forget to use the script HealthSystemAttribute on the player(s)!";
+	private string explanation = _("Use the UI to visualise points and health for the players.");
+	private string lifeReminder = _("Don't forget to use the script HealthSystemAttribute on the player(s)!");
 
 	private int nOfPlayers = 0, gameType = 0;
-	private string[] readablePlayerEnum = new string[]{"One player", "Two players"};
-	private string[] readableGameTypesEnum = new string[]{"Score", "Life", "Endless"};
+	private string[] readablePlayerEnum = new string[]{_("One player"), _("Two players")};
+	private string[] readableGameTypesEnum = new string[]{_("Score"), _("Life"), _("Endless")};
 
 	public override void OnInspectorGUI()
 	{
@@ -20,9 +21,9 @@ public class UIScriptInspector : InspectorBase
 		nOfPlayers = serializedObject.FindProperty("numberOfPlayers").intValue;
 		gameType = serializedObject.FindProperty("gameType").intValue;
 
-		nOfPlayers = EditorGUILayout.Popup("Number of players", nOfPlayers, readablePlayerEnum);
+		nOfPlayers = EditorGUILayout.Popup(_("Number of players"), nOfPlayers, readablePlayerEnum);
 
-		gameType = EditorGUILayout.Popup("Game type", gameType, readableGameTypesEnum);
+		gameType = EditorGUILayout.Popup(_("Game type"), gameType, readableGameTypesEnum);
 		if(gameType == 0) //score game
 		{
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("scoreToWin"));

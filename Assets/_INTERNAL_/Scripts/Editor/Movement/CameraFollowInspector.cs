@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(CameraFollow))]
 public class CameraFollowInspector : InspectorBase
 {
-	private string explanation = "This script makes the Camera follow a specific object (usually the Player).";
-	private string warning = "WARNING: No object is selected, so the Camera will not move.";
-	private string requiresCamera = "This script requires a Camera component to work. Add it to the Camera GameObject.";
+	private string explanation = _("This script makes the Camera follow a specific object (usually the Player).");
+	private string warning = _("WARNING: No object is selected, so the Camera will not move.");
+	private string requiresCamera = _("This script requires a Camera component to work. Add it to the Camera GameObject.");
 
     private string undoLimitBoundsMessage = "Change bounds";
 
@@ -41,8 +42,8 @@ public class CameraFollowInspector : InspectorBase
 			}
 
             GUILayout.Space(5);
-            GUILayout.Label("Limits", EditorStyles.boldLabel);
-            bool allowLimitBoundsTemp = EditorGUILayout.Toggle("Use Bounds", serializedObject.FindProperty("limitBounds").boolValue);
+            GUILayout.Label(_("Limits"), EditorStyles.boldLabel);
+            bool allowLimitBoundsTemp = EditorGUILayout.Toggle(_("Use Bounds"), serializedObject.FindProperty("limitBounds").boolValue);
             if (allowLimitBoundsTemp) {
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("left"));
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("right"));

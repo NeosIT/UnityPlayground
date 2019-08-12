@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(Wander))]
 public class WanderInspector : InspectorBase
 {
-	private string explanation = "The GameObject will move around randomly. Use keepNearStartingPoint if you want it to keep near its starting position.";
+	private string explanation = _("The GameObject will move around randomly. Use keepNearStartingPoint if you want it to keep near its starting position.");
 
 	public override void OnInspectorGUI()
 	{
@@ -19,8 +20,8 @@ public class WanderInspector : InspectorBase
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("keepNearStartingPoint"));
 
 		GUILayout.Space(5);
-		GUILayout.Label("Orientation", EditorStyles.boldLabel);
-		bool orientToDirectionTemp = EditorGUILayout.Toggle("Orient to direction", serializedObject.FindProperty("orientToDirection").boolValue);
+		GUILayout.Label(_("Orientation"), EditorStyles.boldLabel);
+		bool orientToDirectionTemp = EditorGUILayout.Toggle(_("Orient to direction"), serializedObject.FindProperty("orientToDirection").boolValue);
 		if(orientToDirectionTemp)
 		{
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("lookAxis"));

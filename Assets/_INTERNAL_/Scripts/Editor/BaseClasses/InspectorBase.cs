@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
+
 
 public class InspectorBase : Editor
 {
 	private SerializedProperty prop;
 
-	private string prefabNotSceneHint = "Select a Prefab from Project panel, not an object in the Hierarchy!";
-	private string selectPrefabHint = "No Prefab selected!";
-	private string colliderWarning = "Disable \"Is Trigger\" on the Collider to make this script work!";
-	private string triggerWarning = "Enable \"Is Trigger\" on the Collider to make this script work!";
+	private string prefabNotSceneHint = _("Select a Prefab from Project panel, not an object in the Hierarchy!");
+	private string selectPrefabHint = _("No Prefab selected!");
+	private string colliderWarning = _("Disable \"Is Trigger\" on the Collider to make this script work!");
+	private string triggerWarning = _("Enable \"Is Trigger\" on the Collider to make this script work!");
 
 	private int preWarningSpace = 5;
 

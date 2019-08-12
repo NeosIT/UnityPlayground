@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 #if GAMEOBJECT_HEADER
 
@@ -49,7 +50,7 @@ public class TestScriptInspector : Editor {
 
 			//Tags dropdown
 			GUILayout.BeginHorizontal();
-				GUILayout.Label("Tag", GUILayout.ExpandWidth(false));
+				GUILayout.Label(_("Tag"), GUILayout.ExpandWidth(false));
 
 				string[] options = InternalEditorUtility.tags; //final list of tag options, including the mixed tag placeholder character "–"
 				int chosenTagId = 0; //number of tag chosen
@@ -58,7 +59,7 @@ public class TestScriptInspector : Editor {
 				//extra checks in case of multiple selection
 				if(Selection.gameObjects.Length > 1)
 				{
-					//check if at least two objects have different tags		
+					//check if at least two objects have different tags
 					string firstTag = Selection.gameObjects[0].tag;
 					foreach(GameObject go in Selection.gameObjects)
 					{
@@ -103,15 +104,15 @@ public class TestScriptInspector : Editor {
                 GUILayout.Space(5);
 
                 GUILayout.BeginHorizontal();
-                GUILayout.Label("Prefab", GUILayout.ExpandWidth(false));
-                if (GUILayout.Button("Select", EditorStyles.miniButtonLeft)) {
+                GUILayout.Label(_("Prefab"), GUILayout.ExpandWidth(false));
+                if (GUILayout.Button(_("Select"), EditorStyles.miniButtonLeft)) {
                     Selection.activeObject = prefabParent;
                     EditorGUIUtility.PingObject(prefabParent);
                 }
-                if (GUILayout.Button("Revert", EditorStyles.miniButtonMid)) {
+                if (GUILayout.Button(_("Revert"), EditorStyles.miniButtonMid)) {
                     PrefabUtility.RevertPrefabInstance(Selection.activeGameObject, InteractionMode.UserAction);
                 }
-                if (GUILayout.Button("Apply", EditorStyles.miniButtonRight)) {
+                if (GUILayout.Button(_("Apply"), EditorStyles.miniButtonRight)) {
 	                PrefabUtility.ApplyPrefabInstance(Selection.activeGameObject, InteractionMode.UserAction);
                 }
 
@@ -121,13 +122,13 @@ public class TestScriptInspector : Editor {
         GUILayout.EndVertical();
 
 		serializedObject.ApplyModifiedProperties();
-		
+
 		/*
 		//Prints the names of all properties of an object
 		SerializedProperty prop = serializedObject.GetIterator();
 		if (prop.NextVisible(true)) {
 			do {
-				
+
 				//EditorGUILayout.PropertyField(serializedObject.FindProperty(prop.name), true);
 				Debug.Log(prop.name);
 			}

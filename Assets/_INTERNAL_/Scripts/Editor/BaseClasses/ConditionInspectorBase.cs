@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEditorInternal;
 using System;
 using System.IO;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
+
 
 [CanEditMultipleObjects]
 public class ConditionInspectorBase : InspectorBase
@@ -41,10 +43,10 @@ public class ConditionInspectorBase : InspectorBase
 
 		//draws the header of the ReorderableList
 		list.drawHeaderCallback = (Rect rect) => {
-			EditorGUI.LabelField(rect, "Gameplay Actions");
+			EditorGUI.LabelField(rect, _("Gameplay Actions"));
 		};
 
-		list.onAddDropdownCallback = (Rect buttonRect, ReorderableList l) => {  
+		list.onAddDropdownCallback = (Rect buttonRect, ReorderableList l) => {
     		var menu = new GenericMenu();
 			var guids = AssetDatabase.FindAssets("", new[]{"Assets/Scripts/Conditions/Actions"});
 			foreach (var guid in guids) {
@@ -52,7 +54,7 @@ public class ConditionInspectorBase : InspectorBase
 				string p = Path.GetFileNameWithoutExtension(path);
 				menu.AddItem(new GUIContent(p), false, ClickHandler, p);
 			}
-			menu.AddItem(new GUIContent("- Empty slot -"), false, ClickHandler, "");
+			menu.AddItem(new GUIContent(_("- Empty slot -")), false, ClickHandler, "");
 			menu.ShowAsContext();
 		};
 
@@ -62,7 +64,7 @@ public class ConditionInspectorBase : InspectorBase
 	private void RemoveElement(ReorderableList l)
 	{
 		SerializedProperty element = l.serializedProperty.GetArrayElementAtIndex(l.index);
-		
+
 		if(element.objectReferenceValue != null)
 		{
 			Type t = element.objectReferenceValue.GetType();
@@ -97,7 +99,7 @@ public class ConditionInspectorBase : InspectorBase
 	{
 		list.DoLayoutList();
 
-		bool useCustom = EditorGUILayout.Toggle("Use custom actions", serializedObject.FindProperty("useCustomActions").boolValue);
+		bool useCustom = EditorGUILayout.Toggle(_("Use custom actions"), serializedObject.FindProperty("useCustomActions").boolValue);
 		if(useCustom)
 		{
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("customActions"));
@@ -110,10 +112,10 @@ public class ConditionInspectorBase : InspectorBase
 	protected void DrawTagsGroup()
 	{
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("happenOnlyOnce"));
-		filterByTag = EditorGUILayout.Toggle("Filter by Tag", serializedObject.FindProperty("filterByTag").boolValue);
+		filterByTag = EditorGUILayout.Toggle(_("Filter by Tag"), serializedObject.FindProperty("filterByTag").boolValue);
 		if(filterByTag)
 		{
-			chosenTag = EditorGUILayout.TagField("Tag to check for", chosenTag);
+			chosenTag = EditorGUILayout.TagField(_("Tag to check for"), chosenTag);
 		}
 		serializedObject.FindProperty("filterByTag").boolValue = filterByTag;
 	}

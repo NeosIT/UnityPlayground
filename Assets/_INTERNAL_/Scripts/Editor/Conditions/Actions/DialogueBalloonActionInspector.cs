@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(DialogueBalloonAction))]
 public class DialogueBalloonActionInspector : InspectorBase
 {
-	private string explanation = "Use this script to create a dialogue ballon on a character's head.";
-	private string tipMessage = "TIP: Connect another DialogueBalloonAction in the last slot to create a continuous conversation.";
+	private string explanation = _("Use this script to create a dialogue ballon on a character's head.");
+	private string tipMessage = _("TIP: Connect another DialogueBalloonAction in the last slot to create a continuous conversation.");
 
 	public override void OnInspectorGUI()
 	{
