@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
-using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [CustomEditor(typeof(InventoryResources))]
 public class InventoryResourcesInspector : Editor

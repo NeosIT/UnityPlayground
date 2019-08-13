@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
-using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 #if DEFAULT_INSPECTORS
 

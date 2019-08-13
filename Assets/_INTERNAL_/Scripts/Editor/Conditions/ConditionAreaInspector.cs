@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
-using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ConditionArea))]

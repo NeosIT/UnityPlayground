@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using UnityEditorInternal;
-using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ConditionKeyPress))]

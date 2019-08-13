@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using System;
 using System.IO;
-using static _INTERNAL_.Scripts.Utilities.EditorTranslation;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 
 [CanEditMultipleObjects]
