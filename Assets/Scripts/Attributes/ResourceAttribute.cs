@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [AddComponentMenu("Playground/Attributes/Resource")]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -38,7 +39,7 @@ public class ResourceAttribute : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogWarning("User Interface is not in the scene, so the resource cannot be displayed and put in the inventory.");
+				Debug.LogWarning(_("User Interface is not in the scene, so the resource cannot be displayed and put in the inventory."));
 			}
 
 			Destroy(gameObject);

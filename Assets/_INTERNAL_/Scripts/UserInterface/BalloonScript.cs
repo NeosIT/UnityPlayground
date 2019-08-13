@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [AddComponentMenu("")]
 public class BalloonScript : MonoBehaviour
@@ -39,7 +41,7 @@ public class BalloonScript : MonoBehaviour
 		//button text setup
 		if(isUsingButton)
 		{
-			buttonText.text = "press " + buttonUsed.ToString();
+			buttonText.text = string.Format(_("press {0}"), buttonUsed);
 			buttonText.color = textC;
 		}
 		else

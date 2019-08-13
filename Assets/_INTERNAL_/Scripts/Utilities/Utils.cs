@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 public static class Utils
 {
@@ -70,7 +71,7 @@ public static class Utils
 	{
 		Gizmos.color = Color.green;
 		float arrowAngle = Angle(direction);
-		
+
 		if(scale == 0f)
 		{
 			//calculate it from the direction
@@ -98,12 +99,12 @@ public static class Utils
 			return;
 		}
 
-		//If not, popup a window offering a choice		
-        int option = UnityEditor.EditorUtility.DisplayDialogComplex("Collider2D needed",
-                "This script requires a Collider2D to work. Which shape do you want it to be?\n\nIf you are not sure, choose Polygon.",
-                "Polygon",
-                "Circle",
-                "Rectangle");
+		//If not, popup a window offering a choice
+        int option = UnityEditor.EditorUtility.DisplayDialogComplex(_("Collider2D needed"),
+                _("This script requires a Collider2D to work. Which shape do you want it to be?\n\nIf you are not sure, choose Polygon."),
+                _("Polygon"),
+                _("Circle"),
+                _("Rectangle"));
 
 
         switch (option)
@@ -124,7 +125,7 @@ public static class Utils
                 break;
 
             default:
-                Debug.LogWarning("Please add a Collider2D of any type or the script will not work as expected.");
+                Debug.LogWarning(_("Please add a Collider2D of any type or the script will not work as expected."));
                 break;
         }
 #endif

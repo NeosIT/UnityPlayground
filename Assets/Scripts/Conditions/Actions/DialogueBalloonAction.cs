@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [AddComponentMenu("Playground/Actions/Dialogue Balloon")]
 public class DialogueBalloonAction : Action
@@ -31,15 +32,15 @@ public class DialogueBalloonAction : Action
 			if(d == null)
 			{
 				//Dialogue System is not in the scene
-				Debug.LogWarning("You need a UI in the scene to display dialogue!");
+				Debug.LogWarning(_("You need a UI in the scene to display dialogue!"));
 				return false;
 			}
-			
+
 			//Dialogue System is found
 			b = d.CreateBalloon(textToDisplay, (disappearMode == DisappearMode.ButtonPress), keyToPress, timeToDisappear, backgroundColor, textColor, targetObject);
 			b.BalloonDestroyed += OnBalloonDestroyed;
 			balloonIsActive = true;
-			
+
 			StartCoroutine(WaitForBallonDestroyed());
 			return true;
 		}

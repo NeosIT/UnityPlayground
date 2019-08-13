@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [AddComponentMenu("")]
 public class UIScript : MonoBehaviour
@@ -43,7 +45,7 @@ public class UIScript : MonoBehaviour
 			if(gameType == GameType.Score)
 			{
 				// Show the 2-player score interface
-				rightLabel.text = leftLabel.text = "Score";
+				rightLabel.text = leftLabel.text = _("Score");
 
 				// Show the score as 0 for both players
 				numberLabels[0].text = numberLabels[1].text = "0";
@@ -52,7 +54,7 @@ public class UIScript : MonoBehaviour
 			else
 			{
 				// Show the 2-player life interface
-				rightLabel.text = leftLabel.text = "Life";
+				rightLabel.text = leftLabel.text = _("Life");
 
 				// Life will be provided by the PlayerHealth components
 			}
@@ -109,7 +111,7 @@ public class UIScript : MonoBehaviour
 	    if (!gameOver)
 	    {
 			gameOver = true;
-			winLabel.text = "Player " + ++playerNumber + " wins!";
+			winLabel.text = string.Format(_("Player {0} wins!"), ++playerNumber);
 			statsPanel.SetActive(false);
 			winPanel.SetActive(true);
 		}

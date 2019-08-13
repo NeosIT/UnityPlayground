@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.IO;
 using UnityEngine;
 
 namespace _INTERNAL_.Scripts.Utilities
@@ -77,7 +78,7 @@ namespace _INTERNAL_.Scripts.Utilities
             ReloadLanguages();
         }
 
-        internal static void ReloadLanguages()
+        public static void ReloadLanguages()
         {
             Translations.Clear();
             var files = Resources.LoadAll<LocalizationAsset>("Localization");
@@ -85,7 +86,10 @@ namespace _INTERNAL_.Scripts.Utilities
             var keys = textAsset.text.Split('\n');
             foreach (var file in files)
             {
-                var result = Languages.TryGetValue(file.localeIsoCode, out var lang);
+                var isoCode = !string.IsNullOrWhiteSpace(file.localeIsoCode)
+                    ? file.localeIsoCode
+                    : Path.GetFileName(file.name);
+                var result = Languages.TryGetValue(isoCode, out var lang);
                 if (!result)
                 {
                     Debug.LogWarning($"Skipping unknown language with code: {file.localeIsoCode}");

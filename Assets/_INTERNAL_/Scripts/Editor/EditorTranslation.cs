@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using _INTERNAL_.Scripts.Utilities;
 using Karambolo.PO;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-namespace _INTERNAL_.Scripts.Utilities
+namespace _INTERNAL_.Scripts.Editor
 {
     public class EditorTranslation : IPreprocessBuildWithReport
     {

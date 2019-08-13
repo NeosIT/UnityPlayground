@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 public abstract class ConditionBase : MonoBehaviour
 {
-	
+
 	//actionitems can be connected to GameplayAction scripts, and execute their one action (the method ExecuteAction implemented in each child class)
 	[SerializeField]
 	public List<Action> actions = new List<Action>();
@@ -30,7 +31,7 @@ public abstract class ConditionBase : MonoBehaviour
 
 	//dataObject is usually the other object in the collision
 	public void ExecuteAllActions(GameObject dataObject)
-	{		
+	{
 		//first check if the action has already been executed
 		if(happenOnlyOnce && alreadyHappened)
 			return;
@@ -45,7 +46,7 @@ public abstract class ConditionBase : MonoBehaviour
 				actionResult = ga.ExecuteAction(dataObject);
 				if(actionResult == false)
 				{
-					Debug.LogWarning("An action failed and interrupted the chain of Actions");
+					Debug.LogWarning(_("An action failed and interrupted the chain of Actions"));
 					return;
 				}
 			}

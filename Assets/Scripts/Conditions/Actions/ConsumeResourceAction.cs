@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [AddComponentMenu("Playground/Actions/Consume Resource")]
 public class ConsumeResourceAction : Action
@@ -38,7 +39,7 @@ public class ConsumeResourceAction : Action
 		}
 		else
 		{
-			Debug.LogWarning("User Interface prefab has not been found in the scene. The action can't execute!");
+			Debug.LogWarning(_("User Interface prefab has not been found in the scene. The action can't execute!"));
 			return false;
 		}
 	}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using static _INTERNAL_.Scripts.Utilities.Translation;
 
 [AddComponentMenu("Playground/Actions/Create Object")]
 public class CreateObjectAction : Action
@@ -7,7 +8,7 @@ public class CreateObjectAction : Action
 	public GameObject prefabToCreate;
 	public Vector2 newPosition;
 	public bool relativeToThisObject;
-		
+
 	// Creates a new GameObject
 	public override bool ExecuteAction(GameObject dataObject)
 	{
@@ -29,7 +30,7 @@ public class CreateObjectAction : Action
 		}
 		else
 		{
-			Debug.LogWarning("There is no Prefab assigned to this CreateObjectAction, so a new object can't be created.");
+			Debug.LogWarning(_("There is no Prefab assigned to this CreateObjectAction, so a new object can't be created."));
 			return false;
 		}
 	}

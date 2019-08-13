@@ -1,7 +1,7 @@
 languages=("de")
 
 # setup
-mkdir -p Localization
+mkdir -p "Assets/_INTERNAL_/Resources/Localization"
 
 # get files
 find Assets/_INTERNAL_/Scripts/ -name "*.cs" > files.txt
