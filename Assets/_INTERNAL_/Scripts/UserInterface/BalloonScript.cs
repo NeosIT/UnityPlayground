@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using static _INTERNAL_.Scripts.Utilities.Translation;
+using static UnityEngine.Globalization.Translation;
 
 [AddComponentMenu("")]
 public class BalloonScript : MonoBehaviour

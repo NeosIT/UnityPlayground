@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using static _INTERNAL_.Scripts.Utilities.Translation;
+using static UnityEngine.Globalization.Translation;
 
 public static class Utils
 {

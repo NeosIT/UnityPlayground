@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
-using UnityEngine;
 
-namespace _INTERNAL_.Scripts.Utilities
+namespace UnityEngine.Globalization
 {
     public static class Translation
     {
@@ -12,12 +11,8 @@ namespace _INTERNAL_.Scripts.Utilities
         public const string LOCALIZATION_ALL_PATH = "Assets/_INTERNAL_/Resources/" + LOCALIZATION_ALL_RESOURCE_PATH;
         public const string LOCALIZATION_RESOURCES_DIR = "Assets/_INTERNAL_/Resources/Localization";
 
-
         private static readonly IDictionary<SystemLanguage, IDictionary<string, string>> Translations =
             new Dictionary<SystemLanguage, IDictionary<string, string>>();
-
-        public static SystemLanguage Language { get; set; }
-
 
         /// <summary>
         /// ISO 639-1 language codes mapped to Unity's enum.
@@ -70,13 +65,27 @@ namespace _INTERNAL_.Scripts.Utilities
                 {"", SystemLanguage.Unknown},
             });
 
+
+        private static IDictionary<string, string> ToDictionary(this LocalizationAsset asset, IEnumerable<string> keys)
+        {
+            var dict = new Dictionary<string, string>();
+            foreach (var key in keys)
+            {
+                dict[key] = asset.GetLocalizedString(key);
+            }
+
+            return dict;
+        }
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
-        public static void Init()
+        internal static void Init()
         {
             var currentLanguageIsoName = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
             Language = Languages.TryGetValue(currentLanguageIsoName, out var lang) ? lang : SystemLanguage.English;
             ReloadLanguages();
         }
+
+        public static SystemLanguage Language { get; set; }
 
         public static void ReloadLanguages()
         {
@@ -98,17 +107,6 @@ namespace _INTERNAL_.Scripts.Utilities
                 Translations[lang] = file.ToDictionary(keys);
                 Debug.Log($"Successfully loaded language '{lang}'");
             }
-        }
-
-        public static IDictionary<string, string> ToDictionary(this LocalizationAsset asset, string[] keys)
-        {
-            var dict = new Dictionary<string, string>();
-            foreach (var key in keys)
-            {
-                dict[key] = asset.GetLocalizedString(key);
-            }
-
-            return dict;
         }
 
         public static string _(string key)

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
-using static _INTERNAL_.Scripts.Utilities.Translation;
+using static UnityEngine.Globalization.Translation;
 
 public abstract class ConditionBase : MonoBehaviour
 {

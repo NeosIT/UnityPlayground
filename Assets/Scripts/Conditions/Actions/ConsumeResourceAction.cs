@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
-using static _INTERNAL_.Scripts.Utilities.Translation;
+using static UnityEngine.Globalization.Translation;
 
 [AddComponentMenu("Playground/Actions/Consume Resource")]
 public class ConsumeResourceAction : Action

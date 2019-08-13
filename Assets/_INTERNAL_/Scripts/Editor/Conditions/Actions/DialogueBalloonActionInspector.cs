@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
-using static _INTERNAL_.Scripts.Utilities.Translation;
+using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(DialogueBalloonAction))]

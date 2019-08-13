@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using static _INTERNAL_.Scripts.Utilities.Translation;
+using static UnityEngine.Globalization.Translation;
 
 [AddComponentMenu("Playground/Attributes/Destroy For Points")]
 public class DestroyForPointsAttribute : MonoBehaviour

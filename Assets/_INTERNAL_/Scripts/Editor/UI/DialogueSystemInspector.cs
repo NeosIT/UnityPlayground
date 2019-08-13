@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
-using static _INTERNAL_.Scripts.Utilities.Translation;
+using static UnityEngine.Globalization.Translation;
 
 [CustomEditor(typeof(DialogueSystem))]
 public class DialogueSystemInspector : InspectorBase
