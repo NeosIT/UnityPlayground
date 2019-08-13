@@ -10,7 +10,7 @@ for element in ${languages[*]}
 do
   path="Assets/_INTERNAL_/Resources/Localization/$element.po"
   touch $path
-  xgettext -o $path --from-code=UTF-8 -f files.txt -k_ -j
+  xgettext -o $path --from-code=UTF-8 -f files.txt -k_ -j --no-wrap
 done
 
 # cleanup
