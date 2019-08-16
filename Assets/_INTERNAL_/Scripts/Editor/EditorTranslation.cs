@@ -8,11 +8,13 @@ using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.Globalization;
+using Object = UnityEngine.Object;
 
 namespace UnityEditor.Globalization
 {
     public class EditorTranslation : IPreprocessBuildWithReport
     {
+        private static FileSystemWatcher _fileSystemWatcher;
         private const string EDITOR_LANGUAGE_KEY = "Editor.kEditorLocale";
 
         private static void BuildKeyCache()
@@ -56,12 +58,33 @@ namespace UnityEditor.Globalization
 
             if (Directory.Exists(Translation.LOCALIZATION_RESOURCES_DIR))
             {
-                ReloadLanguages();
+                ReloadLanguagesMenu();
             }
+
+            _fileSystemWatcher?.Dispose();
+            _fileSystemWatcher = new FileSystemWatcher
+            {
+                Path = Translation.LOCALIZATION_RESOURCES_DIR,
+                Filter = "*.po",
+                EnableRaisingEvents = true
+            };
+            _fileSystemWatcher.Changed += FileSystemWatcherOnChanged;
+        }
+
+        private static void FileSystemWatcherOnChanged(object sender, FileSystemEventArgs e)
+        {
+            EditorApplication.update += Update;
+        }
+
+        private static void Update()
+        {
+            BuildKeyCacheMenu();
+            ReloadLanguagesMenu();
+            EditorApplication.update -= Update;
         }
 
         [MenuItem("Help/I18N/Reload Translations")]
-        internal static void ReloadLanguages()
+        internal static void ReloadLanguagesMenu()
         {
             Translation.ReloadLanguages();
         }
