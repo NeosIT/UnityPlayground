@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 11:32+0200\n"
+"POT-Creation-Date: 2019-08-16 10:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -533,3 +533,11 @@ msgstr "Rechteck"
 #: Assets/_INTERNAL_/Scripts/Utilities/Utils.cs:128
 msgid "Please add a Collider2D of any type or the script will not work as expected."
 msgstr "Bitte füge ein \"Collider2D\" hinzu, da sonst das Skript nicht funktioniert."
+
+#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoMoveInspector.cs:20
+msgid "Direction"
+msgstr "Richtung"
+
+#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoMoveInspector.cs:21
+msgid "Relative To Rotation"
+msgstr "Relativ zur Ausrichtung"

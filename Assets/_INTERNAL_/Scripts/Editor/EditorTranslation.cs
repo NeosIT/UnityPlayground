@@ -90,5 +90,23 @@ namespace UnityEditor.Globalization
         {
             BuildKeyCache();
         }
+
+        public static void PropertyField(SerializedProperty obj)
+        {
+            var label = Translation._(obj.displayName);
+
+            switch (obj.propertyType)
+            {
+                case SerializedPropertyType.Boolean:
+                    EditorGUILayout.Toggle(label, obj.boolValue);
+                    break;
+                case SerializedPropertyType.Vector2:
+                    EditorGUILayout.Vector2Field(label, obj.vector2Value);
+                    break;
+                default:
+                    Debug.LogWarning("Unknown property type: " + obj.propertyType);
+                    break;
+            }
+        }
     }
 }
