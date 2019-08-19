@@ -6,9 +6,7 @@
 
 Eine Sammlung von simplen Skripts um physikbasierte 2D Spiele zu erstellen. Diese können auf Workshops Unity-Anfängern bereitgestellt werden, damit diese einen sanften Einstieg in Unity haben.
 
-## Dokumentation
-
-### Ziel
+## Ziel
 
 Dieses Projekt versucht so flexibel wie möglich zu sein, ohne ein spezielles Genre zu erzwingen, abgesehen von den 2D und physikbasierten Aspekten. Es enthält eine Menge Skripts die _atomare_ Aufgaben erfüllen, sie machen meistens nur eine Sache, sodass du sie kombinieren kannst um _jede Art_ von Gameplay zu erstellen.
 

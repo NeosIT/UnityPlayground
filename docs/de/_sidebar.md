@@ -1,2 +1,5 @@
-* Erste Schritte
-  * [Projekt einrichten](de/getting-started/setup.md)
+* [Startseite](de/)
+* [Erste Schritte](de/getting-started.md)
+* [Übersicht](de/overview.md)
+* [Alle Komponenten](de/components.md)
+* [Herausforderungen](de/challenges.md)

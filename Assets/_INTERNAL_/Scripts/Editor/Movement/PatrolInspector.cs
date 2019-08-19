@@ -76,6 +76,7 @@ public class PatrolInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
+		EditorGUILayout.LabelField(_("Movement"), EditorStyles.boldLabel);
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
 
 		GUILayout.Space(5);

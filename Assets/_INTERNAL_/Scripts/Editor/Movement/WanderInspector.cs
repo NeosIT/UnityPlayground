@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -14,20 +15,24 @@ public class WanderInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
-
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("directionChangeInterval"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("keepNearStartingPoint"));
+		GUILayout.Label(_("Movement"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Wander.speed)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Wander.directionChangeInterval)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Wander.keepNearStartingPoint)));
 
 		GUILayout.Space(5);
 		GUILayout.Label(_("Orientation"), EditorStyles.boldLabel);
-		bool orientToDirectionTemp = EditorGUILayout.Toggle(_("Orient to direction"), serializedObject.FindProperty("orientToDirection").boolValue);
+		var orientToDirectionProp = serializedObject.FindProperty(nameof(Wander.orientToDirection));
+		var orientToDirectionTemp = EditorTranslation.PropertyField<bool>( orientToDirectionProp);
 		if(orientToDirectionTemp)
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("lookAxis"));
+			EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Wander.lookAxis)));
 		}
-		serializedObject.FindProperty("orientToDirection").boolValue = orientToDirectionTemp;
+		orientToDirectionProp.boolValue = orientToDirectionTemp;
 
-		serializedObject.ApplyModifiedProperties();
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 	}
 }

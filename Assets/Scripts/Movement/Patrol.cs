@@ -5,7 +5,6 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Patrol : Physics2DObject
 {
-	[Header("Movement")]
 	public float speed = 5f;
 	public float directionChangeInterval = 3f;
 
@@ -41,7 +40,7 @@ public class Patrol : Physics2DObject
 			Utils.SetAxisTowards(lookAxis, transform, ((Vector3)newWaypoints[1] - transform.position).normalized);
 		}
 	}
-	
+
 	public void FixedUpdate ()
 	{
 		Vector2 currentTarget = newWaypoints[currentTargetIndex];

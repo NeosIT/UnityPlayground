@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -16,15 +17,22 @@ public class PushInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
-		base.OnInspectorGUI();
+		GUILayout.Label(_("Input Keys"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Push.key)));
 
-		if(serializedObject.FindProperty("relativeAxis").boolValue)
+		GUILayout.Label(_("Direction and Strength"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Push.pushStrength)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Push.axis)));
+
+		var relativeAxisProp = serializedObject.FindProperty(nameof(Push.relativeAxis));
+		relativeAxisProp.boolValue = EditorTranslation.PropertyField<bool>(relativeAxisProp);
+
+		var tip = relativeAxisProp.boolValue ? relativeTip : absoluteTip;
+		EditorGUILayout.HelpBox(tip, MessageType.Info);
+
+		if (serializedObject.hasModifiedProperties)
 		{
-			EditorGUILayout.HelpBox(relativeTip, MessageType.Info);
-		}
-		else
-		{
-			EditorGUILayout.HelpBox(absoluteTip, MessageType.Info);
+			serializedObject.ApplyModifiedProperties();
 		}
 	}
 }

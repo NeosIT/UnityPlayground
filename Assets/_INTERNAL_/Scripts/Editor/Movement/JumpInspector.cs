@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -16,22 +17,26 @@ public class JumpInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("key"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("jumpStrength"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Jump.key)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Jump.jumpStrength)));
 
 
 		GUILayout.Label(_("Ground setup"), EditorStyles.boldLabel);
-		checkGround = EditorGUILayout.Toggle(_("Check ground"), serializedObject.FindProperty("checkGround").boolValue);
+		var checkGroundProp = serializedObject.FindProperty(nameof(Jump.checkGround));
+		checkGround = EditorTranslation.PropertyField<bool>(checkGroundProp);
 		if(checkGround)
 		{
-			serializedObject.FindProperty("groundTag").stringValue = EditorGUILayout.TagField(_("Ground tag"), serializedObject.FindProperty("groundTag").stringValue);
+			EditorTranslation.PropertyTagField(serializedObject.FindProperty(nameof(Jump.groundTag)));
 		}
 		else
 		{
 			EditorGUILayout.HelpBox(checkGroundTip, MessageType.Info);
 		}
-		serializedObject.FindProperty("checkGround").boolValue = checkGround;
+		checkGroundProp.boolValue = checkGround;
 
-		serializedObject.ApplyModifiedProperties();
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 	}
 }

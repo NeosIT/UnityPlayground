@@ -5,12 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Push : Physics2DObject
 {
-	[Header("Input key")]
-
 	// the key used to activate the push
 	public KeyCode key = KeyCode.Space;
-
-	[Header("Direction and strength")]
 
 	// strength of the push, and the axis on which it is applied (can be X or Y)
 	public float pushStrength = 5f;

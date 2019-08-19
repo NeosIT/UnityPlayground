@@ -5,15 +5,11 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Move : Physics2DObject
 {
-	[Header("Input keys")]
 	public Enums.KeyGroups typeOfControl = Enums.KeyGroups.ArrowKeys;
 
-	[Header("Movement")]
-	[Tooltip("Speed of movement")]
 	public float speed = 5f;
 	public Enums.MovementType movementType = Enums.MovementType.AllDirections;
 
-	[Header("Orientation")]
 	public bool orientToDirection = false;
 	// The direction that will face the player
 	public Enums.Directions lookAxis = Enums.Directions.Up;
@@ -25,7 +21,7 @@ public class Move : Physics2DObject
 
 	// Update gets called every frame
 	void Update ()
-	{	
+	{
 		// Moving with the arrow keys
 		if(typeOfControl == Enums.KeyGroups.ArrowKeys)
 		{
@@ -48,7 +44,7 @@ public class Move : Physics2DObject
 				moveHorizontal = 0f;
 				break;
 		}
-			
+
 		movement = new Vector2(moveHorizontal, moveVertical);
 
 

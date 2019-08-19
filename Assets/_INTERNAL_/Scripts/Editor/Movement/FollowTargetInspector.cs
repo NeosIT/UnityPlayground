@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -15,20 +16,20 @@ public class FollowTargetInspector : InspectorBase
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
 		GUILayout.Space(5);
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("target"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(FollowTarget.target)));
 
 		//Draw custom inspector
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(FollowTarget.speed)));
 
 		GUILayout.Space(10);
 
-		SerializedProperty lookAtTargetProperty = serializedObject.FindProperty("lookAtTarget");
+		SerializedProperty lookAtTargetProperty = serializedObject.FindProperty(nameof(FollowTarget.lookAtTarget));
 
 		lookAtTargetProperty.boolValue = EditorGUILayout.BeginToggleGroup(_("Look at target"), lookAtTargetProperty.boolValue);
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("useSide"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(FollowTarget.useSide)));
 		EditorGUILayout.EndToggleGroup();
 
-		if (GUI.changed)
+		if (serializedObject.hasModifiedProperties)
 		{
 			serializedObject.ApplyModifiedProperties();
 		}

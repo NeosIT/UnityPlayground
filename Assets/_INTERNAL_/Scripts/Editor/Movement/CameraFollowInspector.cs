@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -34,7 +35,7 @@ public class CameraFollowInspector : InspectorBase
 		}
 		else
 		{
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("target"));
+            EditorTranslation.PropertyField(serializedObject.FindProperty("target"));
 
             if (!CheckIfAssigned("target", false))
 			{
@@ -43,16 +44,21 @@ public class CameraFollowInspector : InspectorBase
 
             GUILayout.Space(5);
             GUILayout.Label(_("Limits"), EditorStyles.boldLabel);
-            bool allowLimitBoundsTemp = EditorGUILayout.Toggle(_("Use Bounds"), serializedObject.FindProperty("limitBounds").boolValue);
-            if (allowLimitBoundsTemp) {
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("left"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("right"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("bottom"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("top"));
-            }
-            serializedObject.FindProperty("limitBounds").boolValue = allowLimitBoundsTemp;
 
-            serializedObject.ApplyModifiedProperties();
+            var property = serializedObject.FindProperty(nameof(CameraFollow.limitBounds));
+            var allowLimitBoundsTemp = EditorTranslation.PropertyField<bool>(property);
+            if (allowLimitBoundsTemp) {
+	            EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(CameraFollow.left)));
+	            EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(CameraFollow.right)));
+                EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(CameraFollow.bottom)));
+                EditorTranslation.PropertyFfield(serializedObject.FindProperty(nameof(CameraFollow.top)));
+            }
+            property.boolValue = allowLimitBoundsTemp;
+
+            if (serializedObject.hasModifiedProperties)
+            {
+	            serializedObject.ApplyModifiedProperties();
+            }
         }
 	}
 

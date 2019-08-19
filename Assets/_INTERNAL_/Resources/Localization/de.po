@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 10:11+0200\n"
+"POT-Creation-Date: 2019-08-16 11:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr "Dieses Skript erlaubt es Spielern oder Objekten schaden zu nehmen."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Attributes/ModifyHealthAttributeInspector.cs:10
 msgid "This GameObject will damage or heal other GameObjects on impact (only if they use the HealthSystemAttribute). Negative values mean damage, positive values mean healing (like a medipack)."
-msgstr "Dieses GameObjekt wird Schaden austeilen oder Leben regenerieren wenn es ein anderes Objekt berührt (diese benötigen ein \"HealthSystemAttribute\"). Negative Werte bedeuten Schaden und positive Werte bedeuten Heilung."
+msgstr "Dieses GameObject wird Schaden austeilen oder Leben regenerieren wenn es ein anderes Objekt berührt (diese benötigen ein \"HealthSystemAttribute\"). Negative Werte bedeuten Schaden und positive Werte bedeuten Heilung."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Attributes/ModifyHealthAttributeInspector.cs:25
 msgid "This object will damage on impact"
@@ -170,7 +170,7 @@ msgstr "WARNUNG: Wenn du kein GameObject zuweist, wird dieses GameObject telepor
 
 #: Assets/_INTERNAL_/Scripts/Editor/Conditions/ConditionAreaInspector.cs:10
 msgid "Perform actions when a GameObject enters, exits, or stays inside the trigger collider (in this last case you get to choose the frequency)."
-msgstr "Löst Aktionen aus, wenn ein Gameobjekt ein anderes betritt, verlässt oder bleibt. Wenn es bleibt, kannst du festlegen wie oft die Aktion ausgelöst werden soll."
+msgstr "Löst Aktionen aus, wenn ein GameObject ein anderes betritt, verlässt oder bleibt. Wenn es bleibt, kannst du festlegen wie oft die Aktion ausgelöst werden soll."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Conditions/ConditionCollisionInspector.cs:10
 msgid "Use this script to perform an action when this GameObject collides with another."
@@ -241,7 +241,7 @@ msgstr "Reibung"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:25
 msgid "Angular Friction"
-msgstr "Rotationsreibung"
+msgstr "Drehungsreibung"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:26
 msgid "Gravity"
@@ -253,7 +253,7 @@ msgstr "Position einfrieren"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:50
 msgid "Freeze Rotation"
-msgstr "Rotation einfrieren"
+msgstr "Drehung einfrieren"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:68
 msgid "Select one GameObject at a time to modify constraints"
@@ -293,7 +293,7 @@ msgstr "Position"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/TransformInspector.cs:69
 msgid "Rotation"
-msgstr "Rotation"
+msgstr "Drehung"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/TransformInspector.cs:87
 msgid "Scale"
@@ -331,15 +331,15 @@ msgstr "Playground wurde ausgeschalten"
 msgid "Turned Playground on"
 msgstr "Playground wurde eingeschaltet"
 
-#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoMoveInspector.cs:10
+#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoMoveInspector.cs:11
 msgid "The GameObject moves automatically in a specific direction."
-msgstr "Das GameObjekt bewegt sich automatisch in eine Richtung."
-
-#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoRotationInspector.cs:10
-msgid "The GameObject rotates automatically."
-msgstr "Das GameObjekt rotiert automatisch."
+msgstr "Das GameObject bewegt sich automatisch in eine Richtung."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoRotationInspector.cs:11
+msgid "The GameObject rotates automatically."
+msgstr "Das GameObject rotiert automatisch."
+
+#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoRotationInspector.cs:12
 msgid "TIP: Use negative value to rotate in the other direction."
 msgstr "Tipp: Benutze negative Werte um dich in die andere Richtung zu drehen."
 
@@ -393,7 +393,7 @@ msgstr "Boden-Tag"
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/MoveWithArrowsInspector.cs:10
 msgid "The GameObject moves when pressing specific keys. Choose between Arrows or WASD."
-msgstr "Das GameObjekt bewegt sich bei Tastendruck. Entscheide dich zwischen WASD und Pfeiltasten."
+msgstr "Das GameObject bewegt sich bei Tastendruck. Entscheide dich zwischen WASD und Pfeiltasten."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/MoveWithArrowsInspector.cs:11
 msgid "If you want, you can constrain movement on the X/Y axes in the Rigidbody2D's properties."
@@ -413,7 +413,7 @@ msgstr "In Bewegungsrichtung drehen."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/PatrolInspector.cs:11
 msgid "The object moves through a series of positions. This can be used for patrolling characters."
-msgstr "Das GameObjekt wird sich entlang der definierten Punkte bewegen. Dies kann verwendet werden um Objekte \"patrouillieren\" zu lassen."
+msgstr "Das GameObject wird sich entlang der definierten Punkte bewegen. Dies kann verwendet werden um Objekte \"patrouillieren\" zu lassen."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/PatrolInspector.cs:12
 msgid "The list of waypoints is empty, so the GameObject will not move."
@@ -421,7 +421,7 @@ msgstr "Es sind keine Wegpunkte festgelegt. Das GameObject wird sicht nicht bewe
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/PatrolInspector.cs:49
 msgid "Stops"
-msgstr "Stoppt"
+msgstr "Wegpunkte"
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/PatrolInspector.cs:86
 msgid "Reset Waypoints"
@@ -429,7 +429,7 @@ msgstr "Wegpunkte zurücksetzen"
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/PushWithButtonInspector.cs:10
 msgid "The GameObject will move at the push of a button, as if a thruster or an invisible force was pushing it."
-msgstr "Das GameObjekt bewegt sich bei Tastendruck, als würde es in eine Richtung gedrückt werden."
+msgstr "Das GameObject bewegt sich bei Tastendruck, als würde es in eine Richtung gedrückt werden."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/PushWithButtonInspector.cs:11
 msgid "TIP: The GameObject will always move in the direction chosen regardless of its orientation."
@@ -437,15 +437,15 @@ msgstr "Hinweis: Das GameoObject wird sich immer in die festgelegte Richtung bew
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/PushWithButtonInspector.cs:12
 msgid "TIP: The GameObject will move in the direction chosen relative to its orientation."
-msgstr "Hinweis: Das GameObject wird sich immer in die Richtung relativ zu seiner Rotation bewegen."
+msgstr "Hinweis: Das GameObject wird sich immer in die Richtung relativ zu seiner Drehung bewegen."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/RotateWithArrowsInspector.cs:10
 msgid "The GameObject rotates when pressing the Arrow keys or WASD."
-msgstr "Das GameObjekt rotiert bei Tastendruck. Entscheide dich zwischen WASD und Pfeiltasten."
+msgstr "Das GameObject rotiert bei Tastendruck. Entscheide dich zwischen WASD und Pfeiltasten."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/WanderInspector.cs:10
 msgid "The GameObject will move around randomly. Use keepNearStartingPoint if you want it to keep near its starting position."
-msgstr "Das GameObjekt wird sich zufällig bewegen. Aktiviere \"keepNearStartingPoint\" damit sich das GameObjekt nicht zu weit enfernt."
+msgstr "Das GameObject wird sich zufällig bewegen. Aktiviere \"keepNearStartingPoint\" damit sich das GameObject nicht zu weit enfernt."
 
 #: Assets/_INTERNAL_/Scripts/Editor/ScriptableObjects/InventoryResourcesInspector.cs:11
 msgid "This is the list of Resources present in the game. Add and/or remove names here first, then go back to your Resource GameObjects and assign them a type."
@@ -534,10 +534,101 @@ msgstr "Rechteck"
 msgid "Please add a Collider2D of any type or the script will not work as expected."
 msgstr "Bitte füge ein \"Collider2D\" hinzu, da sonst das Skript nicht funktioniert."
 
-#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoMoveInspector.cs:20
 msgid "Direction"
 msgstr "Richtung"
 
-#: Assets/_INTERNAL_/Scripts/Editor/Movement/AutoMoveInspector.cs:21
 msgid "Relative To Rotation"
-msgstr "Relativ zur Ausrichtung"
+msgstr "Relativ zur Drehung"
+
+msgid "Rotation Speed"
+msgstr "Drehgeschwindigkeit"
+
+msgid "Limit Bounds"
+msgstr "Begrenzung aktivieren"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Bottom"
+msgstr "Unten"
+
+msgid "Top"
+msgstr "Oben"
+
+msgid "Target"
+msgstr "Ziel"
+
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+msgid "Use Side"
+msgstr "Benutze Seite"
+
+msgid "Up"
+msgstr "Oben"
+
+msgid "Down"
+msgstr "Unten"
+
+msgid "Key"
+msgstr "Taste"
+
+msgid "Jump Strength"
+msgstr "Sprungkraft"
+
+msgid "Check Ground"
+msgstr "Boden testen"
+
+msgid "Ground Tag"
+msgstr "Boden-Tag"
+
+msgid "Type Of Control"
+msgstr "Kontroll-Schema"
+
+msgid "Movement Type"
+msgstr "Bewegungs-Schema"
+
+msgid "Movement"
+msgstr "Bewegung"
+
+msgid "Input Keys"
+msgstr "Eingabe"
+
+msgid "Orient To Direction"
+msgstr "Drehung berücksichtigen"
+
+msgid "ArrowKeys"
+msgstr "Pfeiltasten"
+
+msgid "AllDirections"
+msgstr "Alle Richtungen"
+
+msgid "OnlyHorizontal"
+msgstr "Nur Horizontal"
+
+msgid "OnlyVertical"
+msgstr "Nur Vertikal"
+
+msgid "Look Axis"
+msgstr "Richtung"
+
+msgid "Direction and Strength"
+msgstr "Richtung und Stärke"
+
+msgid "Push Strength"
+msgstr "Stärke"
+
+msgid "Axis"
+msgstr "Achse"
+
+msgid "Relative Axis"
+msgstr "Relativ zur Achse"
+
+msgid "Direction Change Interval"
+msgstr "Änderungsinterval"
+
+msgid "Keep Near Starting Point"
+msgstr "Im Startgebiet bleiben"

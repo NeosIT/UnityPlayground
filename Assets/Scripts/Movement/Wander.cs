@@ -7,12 +7,10 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Wander : Physics2DObject
 {
-	[Header("Movement")]
 	public float speed = 1f;
 	public float directionChangeInterval = 3f;
 	public bool keepNearStartingPoint = true;
 
-	[Header("Orientation")]
 	public bool orientToDirection = false;
 	// The direction that the GameObject will be oriented to
 	public Enums.Directions lookAxis = Enums.Directions.Up;
@@ -30,7 +28,7 @@ public class Wander : Physics2DObject
 		{
 			directionChangeInterval = 0.1f;
 		}
-			
+
 		// we note down the initial position of the GameObject in case it has to hover around that (see keepNearStartingPoint)
 		startingPoint = transform.position;
 

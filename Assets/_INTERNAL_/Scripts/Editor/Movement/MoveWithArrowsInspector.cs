@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -16,26 +17,32 @@ public class MoveInspector : InspectorBase
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
 		//base.OnInspectorGUI();
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("typeOfControl"));
+		EditorGUILayout.LabelField(_("Input Keys"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Move.typeOfControl)));
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("movementType"));
+		EditorGUILayout.LabelField(_("Movement"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Move.speed)), "Speed of movement");
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Move.movementType)));
 
 		GUILayout.Space(5);
 		GUILayout.Label(_("Orientation"), EditorStyles.boldLabel);
-		bool orientToDirectionTemp = EditorGUILayout.Toggle(_("Orient to direction"), serializedObject.FindProperty("orientToDirection").boolValue);
-		if(orientToDirectionTemp)
+		var orientationToDirectionProp = serializedObject.FindProperty(nameof(Move.orientToDirection));
+		bool orientToDirection = EditorTranslation.PropertyField<bool>(orientationToDirectionProp);
+		if(orientToDirection)
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("lookAxis"));
+			EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(Move.lookAxis)));
 		}
-		serializedObject.FindProperty("orientToDirection").boolValue = orientToDirectionTemp;
+		orientationToDirectionProp.boolValue = orientToDirection;
 
 
-		if(serializedObject.FindProperty("movementType").intValue != 0)
+		if(serializedObject.FindProperty(nameof(Move.movementType)).intValue != 0)
 		{
 			EditorGUILayout.HelpBox(constraintsReminder, MessageType.Info);
 		}
 
-		serializedObject.ApplyModifiedProperties();
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 	}
 }
