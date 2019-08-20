@@ -51,7 +51,7 @@ public class CameraFollowInspector : InspectorBase
 	            EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(CameraFollow.left)));
 	            EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(CameraFollow.right)));
                 EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(CameraFollow.bottom)));
-                EditorTranslation.PropertyFfield(serializedObject.FindProperty(nameof(CameraFollow.top)));
+                EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(CameraFollow.top)));
             }
             property.boolValue = allowLimitBoundsTemp;
 
