@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -15,8 +16,17 @@ public class PickUpAndHoldInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 		GUILayout.Space(10);
-		base.OnInspectorGUI();
+
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(PickUpAndHold.pickupKey)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(PickUpAndHold.dropKey)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(PickUpAndHold.pickUpDistance)));
+
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(warning, MessageType.Warning);
+
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 	}
 }

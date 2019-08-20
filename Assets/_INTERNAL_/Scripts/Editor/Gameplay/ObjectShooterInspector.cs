@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -26,8 +27,20 @@ public class ObjectShooterInspector : InspectorBase
 			}
 		}
 
-		base.OnInspectorGUI();
+		GUILayout.Label(_("Object creation"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectShooter.prefabToSpawn)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectShooter.keyToPress)));
 
+		GUILayout.Label(_("Other options"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectShooter.creationRate)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectShooter.shootSpeed)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectShooter.shootDirection)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectShooter.relativeToRotation)));
+
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 		//removed because it's not possible to choose the direction
 		//EditorGUILayout.HelpBox(hint, MessageType.Info);
 	}

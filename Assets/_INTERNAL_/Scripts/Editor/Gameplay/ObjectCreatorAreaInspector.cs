@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -16,8 +17,17 @@ public class ObjectCreatorAreaInspector : InspectorBase
 
 		ShowPrefabWarning("prefabToSpawn");
 
-		base.OnInspectorGUI();
+		GUILayout.Label(_("Object creation"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectCreatorArea.prefabToSpawn)));
+
+		GUILayout.Label(_("Other options"), EditorStyles.boldLabel);
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ObjectCreatorArea.spawnInterval)));
 
 		CheckIfTrigger(true);
+
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 	}
 }

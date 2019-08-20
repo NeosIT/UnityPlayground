@@ -5,13 +5,9 @@ using System.Collections;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ObjectCreatorArea : MonoBehaviour
 {
-	[Header("Object creation")]
-
 	// The object to spawn
 	// WARNING: take if from the Project panel, NOT the Scene/Hierarchy!
 	public GameObject prefabToSpawn;
-
-	[Header("Other options")]
 
 	// Configure the spawning pattern
 	public float spawnInterval = 1;
@@ -24,7 +20,7 @@ public class ObjectCreatorArea : MonoBehaviour
 
 		StartCoroutine(SpawnObject());
 	}
-	
+
 	// This will spawn an object, and then wait some time, then spawn another...
 	IEnumerator SpawnObject ()
 	{

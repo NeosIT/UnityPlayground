@@ -632,3 +632,39 @@ msgstr "Änderungsinterval"
 
 msgid "Keep Near Starting Point"
 msgstr "Im Startgebiet bleiben"
+
+msgid "Object creation"
+msgstr "Objekterstellung"
+
+msgid "Other options"
+msgstr "Andere Einstellungen"
+
+msgid "Prefab To Spawn"
+msgstr "Ersellbares Prefab"
+
+msgid "Spawn Interval"
+msgstr "Erstellungs-Inverval"
+
+msgid "Creation Rate"
+msgstr "Erstellungs-Geschwindigkeit"
+
+msgid "Key To Press"
+msgstr "Taste"
+
+msgid "Shoot Speed"
+msgstr "Projektilgeschwindigkeit"
+
+msgid "Shoot Direction"
+msgstr "Schussrichtung"
+
+msgid "Pickup Key"
+msgstr "Aufheben-Taste"
+
+msgid "Drop Key"
+msgstr "Fallen-Lassen-Taste"
+
+msgid "Pick Up Distance"
+msgstr "Aufheben-Reichweite"
+
+msgid "Time To Destruction"
+msgstr "Zerstörungstimer"
