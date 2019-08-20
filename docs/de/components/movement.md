@@ -1,4 +1,4 @@
-# Bewegungsskripts
+# Bewegung
 
 Diese Kategorie von Skripten befasst sich ausschließlich mit dem Verschieben von GameObjects, unabhängig davon, ob es sich um den Spieler, um Gefahren oder andere Objekte handelt. Da Unity Playground auf Physik basiert, benötigen fast alle GameObjects einen `Rigidbody2D`, um Bewegung zu erzeugen, und möglicherweise eine Art von `Collider2D`, wenn Sie möchten, dass das Objekt mit anderen interagieren kann.
 
@@ -8,7 +8,7 @@ Diese Kategorie von Skripten befasst sich ausschließlich mit dem Verschieben vo
 
 !> Benötigt einen `Rigidbody2D`
 
-![GUI AutoMove](../../_images/de/components/gui-auto-move.jpg)
+![GUI AutoMove](../../_images/de/components/movement/gui-auto-move.jpg)
 
 `AutoMove` übt eine kontinuierliche Kraft auf GameObject aus. Nützlich für Dinge wie Raketen, Pfeile und andere selbstbewegende Objekte.
 
@@ -26,7 +26,7 @@ In der Szenenansicht steht ein grüner Pfeil für die Richtung des Drucks, währ
 
 !> Benötigt einen `Rigidbody2D`
 
-![GUI AutoRotate](../../_images/de/components/gui-auto-rotate.jpg)
+![GUI AutoRotate](../../_images/de/components/movement/gui-auto-rotate.jpg)
 
 `AutoRotate` wendet eine kontinuierliche Drehung auf ein GameObject auf der Z-Achse an. Es kann verwendet werden, um einem dekorativen Objekt Bewegung hinzuzufügen, aber auch, um in Verbindung mit einem [ConditionCollision](#conditioncollision)-Skript rotierende Hindernisse zu erstellen. Sie können die Geschwindigkeit festlegen. Wenn Sie eine negative Geschwindigkeit festlegen, wird das Objekt gegen den Uhrzeigersinn gedreht.
 
@@ -40,7 +40,7 @@ In der Szenenansicht steht ein grüner Pfeil für die Drehrichtung.
 
 !> Benötigt eine `Kamera`
 
-![GUI CameraFollow](../../_images/de/components/gui-camera-follow-1.jpg)
+![GUI CameraFollow](../../_images/de/components/movement/gui-camera-follow-1.jpg)
 
 Verwende `CameraFollow` für ein GameObject mit einer Kamera-Komponente. Dies ist nützlich für Action-Adventure-Spiele, bei denen die Kamera auf den Player ausgerichtet ist. Weisen Sie einem beweglichen GameObject in der Szene als `Target` zu.
 
@@ -48,7 +48,7 @@ Verwende `CameraFollow` für ein GameObject mit einer Kamera-Komponente. Dies is
 
 Wenn die Eigenschaft `Begrenzung Aktivieren` aktiviert ist, wird die Bewegung der Kamera auf ein Rechteck beschränkt.
 
-![GUI CameraFollow](../../_images/de/components/gui-camera-follow-2.jpg)
+![GUI CameraFollow](../../_images/de/components/movement/gui-camera-follow-2.jpg)
 
 Du kannst die Werte der Begrenzung im Inspektor oder in der Szenenansicht mit dem gelben Rechteck anpassen.
 
@@ -60,7 +60,7 @@ Du kannst die Werte der Begrenzung im Inspektor oder in der Szenenansicht mit de
 
 !> Benötigt einen `Rigidbody2D`
 
-![GUI FollowTarget](../../_images/de/components/gui-follow-target.jpg)
+![GUI FollowTarget](../../_images/de/components/movement/gui-follow-target.jpg)
 
 FollowTarget zwingt das GameObject, einem bestimmten Ziel auf unbestimmte Zeit zu folgen.
 
@@ -74,7 +74,7 @@ Mit der Option `Ziel angucken` kannst du auswählen, ob sich das Objekt zum Betr
 
 !> Benötigt einen `Rigidbody2D` (und einen `Collider` auf dem es landen kann!)
 
-![GUI Jump](../../_images/de/components/gui-jump.jpg)
+![GUI Jump](../../_images/de/components/movement/gui-jump.jpg)
 
 Ein einfaches Skript, das ein Objekt springen lässt, wenn eine bestimmte Taste gedrückt wird. Die Eigenschaft `Taste` ist die Tastaturtaste, die zum Springen verwendet wird (Erklärung [hier](https://docs.unity3d.com/ScriptReference/KeyCode.html) - nur auf Englisch).
 
@@ -90,7 +90,7 @@ Wenn `Boden testen` nicht aktiviert ist, kann der Charakter mehrmals in die Luft
 
 !> Benötigt einen `Rigidbody2D`
 
-![GUI Move](../../_images/de/components/gui-move.jpg)
+![GUI Move](../../_images/de/components/movement/gui-move.jpg)
 
 Dieses Skript übt auf zwei Achsen eine konstante Kraft auf das GameObject aus, während entweder die Pfeiltasten oder WASD gedrückt werden.
 
@@ -114,7 +114,7 @@ Im obigen Bild würdest du es beispielsweise für das Raumschiff auf `Hoch` und 
 
 !> Benötigt einen `Rigidbody2D`
 
-![GUI Move](../../_images/de/components/gui-patrol.jpg)
+![GUI Move](../../_images/de/components/movement/gui-patrol.jpg)
 
 Mit dem Patrol-Skript können Sie ein Objekt entlang eines Pfades aus Wegpunkten bewegen. Die Wegpunkte sind in einer Liste (`Wegpunkte`) organisiert, sodass du sie problemlos hinzufügen, entfernen oder neu anordnen kannst. Der Button `Wegpunkte zurücksetzen` löscht die Liste und fügt nur einen Wegpunkt hinzu.
 
@@ -130,11 +130,11 @@ Wenn du Wegpunkte erstellst, werden diese in der Szenenansicht als 3D-Zeichen da
 
 ## Push
 
-![Push](../../_images/unity/Push.png)
+![Push](../../_images/unity/PushWithButton.png)
 
 !> Benötigt einen `Rigidbody2D`
 
-![GUI Push](../../_images/de/components/gui-push.jpg)
+![GUI Push](../../_images/de/components/movement/gui-push.jpg)
 
 Durch das Skript `Push` wird eine kontinuierliche Kraft in eine Richtung ausgeübt, wenn eine bestimmte Taste auf der Tastatur gedrückt wird. Es ist nützlich, um einen Controller für Fahrzeuge, Raketen usw. zu erstellen. Zusätzlich kannst du ihn in Kombination mit [Rotate](#rotate) verwenden, um das Lenken zu ermöglichen.
 
@@ -146,23 +146,23 @@ In Verbindung mit `Achse` steuert die Eigenschaft `Relativ zur Achse`, ob das Sc
 
 Wenn `Relativ zur Achse` **aktiviert** ist, bedeutet das die Ausrichtung des Objekts dadurch auch beeinflusst wird (im Grunde genommen im lokalen Raum):
 
-![GUI Push 1](../../_images/de/components/gui-push-1.jpg)
+![GUI Push 1](../../_images/de/components/movement/gui-push-1.jpg)
 ![Scene Push 1](../../_images/components/scene-push-1.png)
 
 Wenn `Relativ zur Achse` **deaktiviert** ist, ist die Richtung absolut (im Grunde genommen im Weltraum):
 
-![GUI Push 2](../../_images/de/components/gui-push-2.jpg)
+![GUI Push 2](../../_images/de/components/movement/gui-push-2.jpg)
 ![Scene Push 1](../../_images/components/scene-push-2.png)
 
 Der Tooltipp unter `Relativ zur Achse` spiegelt die Änderung wider. Meistens solltest du diese eingeschaltet lassen, damit sich das Fahrzeug in Vorwärtsrichtung bewegt.
 
 ## Rotate
 
-![Rotate](../../_images/unity/Rotate.png)
+![Rotate](../../_images/unity/RotateWithButtons.png)
 
 !> Benötigt einen `Rigidbody2D`
 
-![GUI Rotate](../../_images/de/components/gui-rotate.jpg)
+![GUI Rotate](../../_images/de/components/movement/gui-rotate.jpg)
 
 `Rotate` ist ein Skript, mit dem ein Drehmoment angewendet wird, dh. eine Drehung um die Z-Achse. Wie beim Verschieben wird dies mit den linken / rechten Pfeiltasten oder den AD-Tasten gesteuert. Du kannst es zusammen mit einem [Push](#push)-Skript verwenden, um eine fahrzeugähnliche Steuerung zu erstellen, mit der du in die (vom Fahrzeug angezeigte) Richtung steuern und vorwärts fahren kannst.
 
@@ -174,7 +174,7 @@ Der Tooltipp unter `Relativ zur Achse` spiegelt die Änderung wider. Meistens so
 
 !> Benötigt einen `Rigidbody2D`
 
-![Wander](../../_images/de/components/gui-wander.jpg)
+![Wander](../../_images/de/components/movement/gui-wander.jpg)
 
 Mit `Wander` bewegt sich das GameObject zufällig in kurzen Schüben. Die Bewegungsgeschwindigkeit wird durch die `Geschwindigkeit` gesteuert, die wie üblich mit der Eigenschaft `Drehungsreibung` im `Rigidbody2D` kombiniert wird, damit es sich richtig anfühlt.
 
