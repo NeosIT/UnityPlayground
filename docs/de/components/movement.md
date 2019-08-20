@@ -1,10 +1,8 @@
-# Alle Komponenten
-
-## Bewegungsskripts
+# Bewegungsskripts
 
 Diese Kategorie von Skripten befasst sich ausschließlich mit dem Verschieben von GameObjects, unabhängig davon, ob es sich um den Spieler, um Gefahren oder andere Objekte handelt. Da Unity Playground auf Physik basiert, benötigen fast alle GameObjects einen `Rigidbody2D`, um Bewegung zu erzeugen, und möglicherweise eine Art von `Collider2D`, wenn Sie möchten, dass das Objekt mit anderen interagieren kann.
 
-### AutoMove
+## AutoMove
 
 ![AutoMove](../../_images/unity/AutoMove.png)
 
@@ -22,7 +20,7 @@ In der Szenenansicht steht ein grüner Pfeil für die Richtung des Drucks, währ
 
 > Wenn du dieses Skript auf einem Prefab verwendest, das mit Hilfe des [ObjectShooter](#objectshooter)-Skripts erstellt wurde, denk daran, dass [ObjectShooter](#objectshooter) beim schießen bereits eine Kraft auf Objekte anwenden. Im Falle eines nicht selbstbewegenden Objekts (wie eines Katapultsteins) benötigst du keine automatische Bewegung des Projektils.
 
-### AutoRotate
+## AutoRotate
 
 ![AutoMove](../../_images/unity/AutoRotation.png)
 
@@ -36,7 +34,7 @@ In der Szenenansicht steht ein grüner Pfeil für die Drehrichtung.
 
 ![Szene AutoRotate](../../_images/components/scene-auto-rotate.png)
 
-### CameraFollow
+## CameraFollow
 
 ![CameraFollow](../../_images/unity/CameraFollow.png)
 
@@ -56,7 +54,7 @@ Du kannst die Werte der Begrenzung im Inspektor oder in der Szenenansicht mit de
 
 ![Szene CameraFollow](../../_images/components/scene-camera-follow.png)
 
-### FollowTarget
+## FollowTarget
 
 ![CameraFollow](../../_images/unity/FollowTarget.png)
 
@@ -70,7 +68,7 @@ Mit der Option `Ziel angucken` kannst du auswählen, ob sich das Objekt zum Betr
 
 > Tipp: Du kannst dieses Skript einem Feind zuweisen und den Spieler als Ziel verwenden, um eine dauerhafte Bedrohung zu erstellen, oder du kannst eine Reihe von Charakteren erstellen, indem du sie mit einer Reihe von `FollowTarget`-Skripten miteinander verkettest.
 
-### Jump
+## Jump
 
 ![Jump](../../_images/unity/Jump.png)
 
@@ -86,7 +84,7 @@ Wenn `Boden testen` nicht aktiviert ist, kann der Charakter mehrmals in die Luft
 
 > Tipp: Möglicherweise möchtest du die Eigenschaft `Sprungkraft` zusammen mit der Eigenschaft `Reibung` von `Rigidbody2D` optimieren, um genau die gewünschte Sprungdynamik zu erzielen.
 
-### Move
+## Move
 
 ![Move](../../_images/unity/MoveWithArrows.png)
 
@@ -110,7 +108,7 @@ Wenn es aktiviert ist, kannst du mit der Eigenschaft `Richtung` auswählen, welc
 
 Im obigen Bild würdest du es beispielsweise für das Raumschiff auf `Hoch` und für den Fisch auf `Runter` stellen, während du die Ausrichtung für die Biene auslassen würdest, da sie von der Seite und nicht von oben eingerahmt ist. Rotieren von solchen Sprites würde seltsam aussehen.
 
-### Patrol
+## Patrol
 
 ![Patrol](../../_images/unity/Patrol.png)
 
@@ -130,7 +128,7 @@ Ein kleiner blauer Pfeil markiert die Bewegungsrichtung.
 
 Wenn du Wegpunkte erstellst, werden diese in der Szenenansicht als 3D-Zeichen dargestellt. Du kannst sie hier oder im Inspektor verschieben, indem du die Positionswerte änderst.
 
-### Push
+## Push
 
 ![Push](../../_images/unity/Push.png)
 
@@ -158,7 +156,7 @@ Wenn `Relativ zur Achse` **deaktiviert** ist, ist die Richtung absolut (im Grund
 
 Der Tooltipp unter `Relativ zur Achse` spiegelt die Änderung wider. Meistens solltest du diese eingeschaltet lassen, damit sich das Fahrzeug in Vorwärtsrichtung bewegt.
 
-### Rotate
+## Rotate
 
 ![Rotate](../../_images/unity/Rotate.png)
 
@@ -170,7 +168,7 @@ Der Tooltipp unter `Relativ zur Achse` spiegelt die Änderung wider. Meistens so
 
 > Tipp: Wenn dir der Drehpunkt deines Objekts nicht gefällt, kannst du es einem anderen GameObject zuweisen und dann das [Rotate](#rotate)-Skript auf dieses anwenden. Denk' beispielsweise an ein Fahrrad, bei dem der Drehpunkt auf dem Hinterrad liegt. Auf diese Weise hast du viel mehr Kontrolle über den Drehpunkt (Gizmo), ohne es im eigentlichen Sprite-Asset ändern zu müssen.
 
-### Wander
+## Wander
 
 ![Wander](../../_images/unity/Wander.png)
 
