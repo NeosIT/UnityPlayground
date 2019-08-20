@@ -16,7 +16,7 @@ Die Richtung wird durch einen `Vector2` ausgedrückt und enthält die Stärke. S
 
 In der Szenenansicht steht ein grüner Pfeil für die Richtung des Drucks, während seine Größe für die Stärke steht.
 
-![Szene AutoMove](../../_images/components/scene-auto-move.png)
+![Szene AutoMove](../../_images/components/movement/scene-auto-move.png)
 
 > Wenn du dieses Skript auf einem Prefab verwendest, das mit Hilfe des [ObjectShooter](#objectshooter)-Skripts erstellt wurde, denk daran, dass [ObjectShooter](#objectshooter) beim schießen bereits eine Kraft auf Objekte anwenden. Im Falle eines nicht selbstbewegenden Objekts (wie eines Katapultsteins) benötigst du keine automatische Bewegung des Projektils.
 
@@ -32,7 +32,7 @@ In der Szenenansicht steht ein grüner Pfeil für die Richtung des Drucks, währ
 
 In der Szenenansicht steht ein grüner Pfeil für die Drehrichtung.
 
-![Szene AutoRotate](../../_images/components/scene-auto-rotate.png)
+![Szene AutoRotate](../../_images/components/movement/scene-auto-rotate.png)
 
 ## CameraFollow
 
@@ -52,7 +52,7 @@ Wenn die Eigenschaft `Begrenzung Aktivieren` aktiviert ist, wird die Bewegung de
 
 Du kannst die Werte der Begrenzung im Inspektor oder in der Szenenansicht mit dem gelben Rechteck anpassen.
 
-![Szene CameraFollow](../../_images/components/scene-camera-follow.png)
+![Szene CameraFollow](../../_images/components/movement/scene-camera-follow.png)
 
 ## FollowTarget
 
@@ -104,7 +104,7 @@ Durch die Eigenschaft `Ausrichtung` kannst du steuern, ob sich das Objekt in Bew
 
 Wenn es aktiviert ist, kannst du mit der Eigenschaft `Richtung` auswählen, welche Seite als Vorwärtsrichtung verwendet werden soll. Dies hängt davon ab, wie das Sprite gezeichnet wurde.
 
-![Szene Move](../../_images/components/scene-move.png)
+![Szene Move](../../_images/components/movement/scene-move.png)
 
 Im obigen Bild würdest du es beispielsweise für das Raumschiff auf `Hoch` und für den Fisch auf `Runter` stellen, während du die Ausrichtung für die Biene auslassen würdest, da sie von der Seite und nicht von oben eingerahmt ist. Rotieren von solchen Sprites würde seltsam aussehen.
 
@@ -122,7 +122,7 @@ Das GameObject kehrt zum Startpunkt zurück, sobald alle Wegpunkte erreicht wurd
 
 Wie bei anderen Bewegungsskripts kannst du mit `Ausrichtung` steuern, wie sich deine Sprites beim Bewegen ausrichten. Weitere Informationen findest du bei [Move](#move).
 
-![Szene Patrol](../../_images/components/scene-patrol.png)
+![Szene Patrol](../../_images/components/movement/scene-patrol.png)
 
 Ein kleiner blauer Pfeil markiert die Bewegungsrichtung.
 
@@ -147,12 +147,12 @@ In Verbindung mit `Achse` steuert die Eigenschaft `Relativ zur Achse`, ob das Sc
 Wenn `Relativ zur Achse` **aktiviert** ist, bedeutet das die Ausrichtung des Objekts dadurch auch beeinflusst wird (im Grunde genommen im lokalen Raum):
 
 ![GUI Push 1](../../_images/de/components/movement/gui-push-1.jpg)
-![Scene Push 1](../../_images/components/scene-push-1.png)
+![Scene Push 1](../../_images/components/movement/scene-push-1.png)
 
 Wenn `Relativ zur Achse` **deaktiviert** ist, ist die Richtung absolut (im Grunde genommen im Weltraum):
 
 ![GUI Push 2](../../_images/de/components/movement/gui-push-2.jpg)
-![Scene Push 1](../../_images/components/scene-push-2.png)
+![Scene Push 1](../../_images/components/movement/scene-push-2.png)
 
 Der Tooltipp unter `Relativ zur Achse` spiegelt die Änderung wider. Meistens solltest du diese eingeschaltet lassen, damit sich das Fahrzeug in Vorwärtsrichtung bewegt.
 
