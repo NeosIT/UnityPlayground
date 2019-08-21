@@ -136,6 +136,9 @@ namespace UnityEditor.Globalization
                 case SerializedPropertyType.Float:
                     prop.floatValue = EditorGUILayout.FloatField(label, prop.floatValue);
                     break;
+                case SerializedPropertyType.Integer:
+                    prop.intValue = EditorGUILayout.IntField(label, prop.intValue);
+                    break;
                 case SerializedPropertyType.Enum:
                     var displayedOptions = Enum.GetNames(GetFieldType()).Select(_).ToArray();
                     prop.enumValueIndex = EditorGUILayout.Popup(label, prop.enumValueIndex, displayedOptions);

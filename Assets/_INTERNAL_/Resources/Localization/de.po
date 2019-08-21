@@ -65,7 +65,7 @@ msgstr "Ressourcentyp"
 #: Assets/_INTERNAL_/Scripts/Editor/Attributes/ResourceAttrInspector.cs:38
 #: Assets/_INTERNAL_/Scripts/Editor/Conditions/Actions/ConsumeResourceActionInspector.cs:41
 msgid "Add/Remove types"
-msgstr "Typ hinzufügen/entfernen"
+msgstr "Typen bearbeiten"
 
 #: Assets/_INTERNAL_/Scripts/Editor/BaseClasses/ConditionInspectorBase.cs:46
 msgid "Gameplay Actions"
@@ -668,3 +668,18 @@ msgstr "Aufheben-Reichweite"
 
 msgid "Time To Destruction"
 msgstr "Zerstörungstimer"
+
+msgid "Points Worth"
+msgstr "Wert (Punkte)"
+
+msgid "Health"
+msgstr "Leben"
+
+msgid "Health Change"
+msgstr "Lebensänderung"
+
+msgid "Destroy When Activated"
+msgstr "Bei Aktivierung zerstören"
+
+msgid "Amount"
+msgstr "Menge"

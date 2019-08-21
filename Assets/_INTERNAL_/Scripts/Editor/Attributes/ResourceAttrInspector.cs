@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -21,7 +22,7 @@ public class ResourceAttrInspector : InspectorBase
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
 		//draw the popup that displays the names of Resource types, taken from the "InventoryResources" ScriptableObject
-		SerializedProperty resourceIndexProp = serializedObject.FindProperty("resourceIndex");
+		var resourceIndexProp = serializedObject.FindProperty(nameof(ResourceAttribute.resourceIndex));
 		int chosenType = resourceIndexProp.intValue; //take the int value from the property
 
 		EditorGUILayout.BeginHorizontal();
@@ -31,7 +32,7 @@ public class ResourceAttrInspector : InspectorBase
 
 		resourceIndexProp.intValue = chosenType; //put the value back into the property
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("amount"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ResourceAttribute.amount)));
 
 		GUILayout.Space(10);
 		//Display a button to jump to the "InventoryResources" ScriptableObject
@@ -42,6 +43,9 @@ public class ResourceAttrInspector : InspectorBase
 
 		CheckIfTrigger(true);
 
-		serializedObject.ApplyModifiedProperties();
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 	}
 }

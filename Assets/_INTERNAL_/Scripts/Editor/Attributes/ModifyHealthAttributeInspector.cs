@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -14,17 +15,19 @@ public class ModifyHealthAttributeInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
-		base.OnInspectorGUI();
+		var healthChangeProp = serializedObject.FindProperty(nameof(ModifyHealthAttribute.healthChange));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ModifyHealthAttribute.destroyWhenActivated)));
+		EditorTranslation.PropertyField(healthChangeProp);
 
 		//print a message to explain better that values can be positive or negative
 		GUIStyle style = new GUIStyle(EditorStyles.label);
 
-		if(serializedObject.FindProperty("healthChange").intValue < 0)
+		if(healthChangeProp.intValue < 0)
 		{
 			style.normal.textColor = Color.red;
 			EditorGUILayout.LabelField(_("This object will damage on impact"), style);
 		}
-		else if(serializedObject.FindProperty("healthChange").intValue > 0)
+		else if(healthChangeProp.intValue > 0)
 		{
 			style.normal.textColor = Color.blue;
 			EditorGUILayout.LabelField(_("This object will heal on impact"), style);
@@ -32,6 +35,11 @@ public class ModifyHealthAttributeInspector : InspectorBase
 		else
 		{
 			EditorGUILayout.LabelField(_("This object will have no effect"));
+		}
+
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
 		}
 	}
 }
