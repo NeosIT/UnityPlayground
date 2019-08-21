@@ -80,7 +80,7 @@ msgid "Use custom actions"
 msgstr "Eigene Aktionen verwenden"
 
 #: Assets/_INTERNAL_/Scripts/Editor/BaseClasses/ConditionInspectorBase.cs:115
-msgid "Filter by Tag"
+msgid "Filter By Tag"
 msgstr "Nach Tag filtern"
 
 #: Assets/_INTERNAL_/Scripts/Editor/BaseClasses/ConditionInspectorBase.cs:118
@@ -683,3 +683,30 @@ msgstr "Bei Aktivierung zerstören"
 
 msgid "Amount"
 msgstr "Menge"
+
+msgid "Use Custom Actions"
+msgstr "Eigene Aktionen verwenden"
+
+msgid "Event Type"
+msgstr "Eventtyp"
+
+msgid "Type of Event"
+msgstr "Eventtyp"
+
+msgid "Happen Only Once"
+msgstr "Einmalig"
+
+msgid "Frequency"
+msgstr "Frequenz"
+
+msgid "JustPressed"
+msgstr "Gerade Gedrückt"
+
+msgid "Released"
+msgstr "Losgelassen"
+
+msgid "KeptPressed"
+msgstr "Gedrückt halten"
+
+msgid "Initial Delay"
+msgstr "Startverzögerung"

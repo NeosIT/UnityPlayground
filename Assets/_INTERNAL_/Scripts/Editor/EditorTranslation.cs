@@ -5,7 +5,9 @@ using System.Linq;
 using Karambolo.PO;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Globalization;
 using static UnityEngine.Globalization.Translation;
 
@@ -15,6 +17,8 @@ namespace UnityEditor.Globalization
     {
         private static FileSystemWatcher _fileSystemWatcher;
         private const string EDITOR_LANGUAGE_KEY = "Editor.kEditorLocale";
+        private static readonly UnityEventDrawer Drawer = new UnityEventDrawer();
+
 
         private static void BuildKeyCache()
         {
@@ -145,6 +149,18 @@ namespace UnityEditor.Globalization
                     break;
                 case SerializedPropertyType.ObjectReference:
                     prop.objectReferenceValue = EditorGUILayout.ObjectField(label, prop.objectReferenceValue, GetFieldType(), true);
+                    break;
+                case SerializedPropertyType.Generic:
+                    if (GetFieldType() == typeof(UnityEvent))
+                    {
+                        var rect = EditorGUILayout.BeginHorizontal();
+                        Drawer.OnGUI(rect, prop, label);
+                        EditorGUILayout.EndHorizontal();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Unknown property type: " + prop.propertyType);
+                    }
                     break;
                 default:
                     Debug.LogWarning("Unknown property type: " + prop.propertyType);

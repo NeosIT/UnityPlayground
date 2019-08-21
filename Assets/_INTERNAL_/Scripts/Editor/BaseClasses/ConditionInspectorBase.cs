@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEditorInternal;
 using System;
 using System.IO;
+using UnityEditor.Globalization;
+using UnityEngine.Events;
 using static UnityEngine.Globalization.Translation;
 
 
@@ -19,7 +21,7 @@ public class ConditionInspectorBase : InspectorBase
 
 	protected void OnEnable()
 	{
-		list = new ReorderableList(serializedObject, serializedObject.FindProperty("actions"), true, true, true, true);
+		list = new ReorderableList(serializedObject, serializedObject.FindProperty(nameof(ConditionBase.actions)), true, true, true, true);
 
 		//called for every element that has to be drawn in the ReorderableList
 		list.drawElementCallback =  (Rect rect, int index, bool isActive, bool isFocused) => {
@@ -99,24 +101,29 @@ public class ConditionInspectorBase : InspectorBase
 	{
 		list.DoLayoutList();
 
-		bool useCustom = EditorGUILayout.Toggle(_("Use custom actions"), serializedObject.FindProperty("useCustomActions").boolValue);
-		if(useCustom)
+		var useCustomActionsProp = serializedObject.FindProperty(nameof(ConditionBase.useCustomActions));
+
+		useCustomActionsProp.boolValue = EditorTranslation.PropertyField<bool>(useCustomActionsProp);
+		if(useCustomActionsProp.boolValue)
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("customActions"));
+			var e = new UnityEvent();
+			EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(ConditionBase.customActions)));
 		}
-		serializedObject.FindProperty("useCustomActions").boolValue = useCustom;
 	}
 
 
 	//draws the tags as a dropdown only if the Filter by Tag toggle is enabled
 	protected void DrawTagsGroup()
 	{
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("happenOnlyOnce"));
-		filterByTag = EditorGUILayout.Toggle(_("Filter by Tag"), serializedObject.FindProperty("filterByTag").boolValue);
+		var happenOnlyOnceProp = serializedObject.FindProperty(nameof(ConditionBase.happenOnlyOnce));
+		var filterByTagProp = serializedObject.FindProperty(nameof(ConditionBase.filterByTag));
+
+		EditorTranslation.PropertyField(happenOnlyOnceProp);
+		filterByTag = EditorTranslation.PropertyField<bool>(filterByTagProp);
 		if(filterByTag)
 		{
 			chosenTag = EditorGUILayout.TagField(_("Tag to check for"), chosenTag);
 		}
-		serializedObject.FindProperty("filterByTag").boolValue = filterByTag;
+		filterByTagProp.boolValue = filterByTag;
 	}
 }

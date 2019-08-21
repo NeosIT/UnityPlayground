@@ -4,6 +4,7 @@
 * Alle Skripts
   * [Bewegung](de/components/movement.md)
   * [Gameplay](de/components/gameplay.md)
-  * [Atttribute](de/components/attributes.md)
+  * [Attribute](de/components/attributes.md)
+  * [Bedingungen](de/components/conditions.md)
 * [Herausforderungen](de/challenges.md)
 * [Entwickler](de/developers.md)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -19,8 +20,8 @@ public class ConditionRepeatInspector : ConditionInspectorBase
 
 		GUILayout.Space(10);
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("initialDelay"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("frequency"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ConditionRepeat.initialDelay)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ConditionRepeat.frequency)));
 
 		GUILayout.Space(10);
 		DrawActionLists();

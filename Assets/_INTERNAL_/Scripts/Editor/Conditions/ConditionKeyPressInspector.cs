@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using UnityEditor.Globalization;
 using UnityEditorInternal;
 using static UnityEngine.Globalization.Translation;
 
@@ -55,16 +56,16 @@ public class ConditionKeyPressInspector : ConditionInspectorBase
 		*/
 
 		GUILayout.Space(10);
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("happenOnlyOnce"));
-
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("keyToPress"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ConditionKeyPress.happenOnlyOnce)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ConditionKeyPress.keyToPress)));
 
 		//discern the event type, and show the frequency if needed
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("eventType"));
-		int eventType = serializedObject.FindProperty("eventType").intValue;
+		var eventTypeProp = serializedObject.FindProperty(nameof(ConditionKeyPress.eventType));
+		EditorTranslation.PropertyField(eventTypeProp);
+		int eventType = eventTypeProp.intValue;
 		if(eventType == 2)
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("frequency"));
+			EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ConditionKeyPress.frequency)));
 		}
 
 

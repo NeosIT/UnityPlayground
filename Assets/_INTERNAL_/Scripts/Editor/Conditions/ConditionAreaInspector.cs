@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -13,7 +14,11 @@ public class ConditionAreaInspector : ConditionInspectorBase
 	{
 		serializedObject.Update();
 
-		chosenTag = serializedObject.FindProperty("filterTag").stringValue;
+		var eventTypeProp = serializedObject.FindProperty(nameof(ConditionArea.eventType));
+		var filterTagProp = serializedObject.FindProperty(nameof(ConditionArea.filterTag));
+		var frequencyProp = serializedObject.FindProperty(nameof(ConditionArea.frequency));
+
+		chosenTag = filterTagProp.stringValue;
 
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
@@ -24,11 +29,11 @@ public class ConditionAreaInspector : ConditionInspectorBase
 
 
 		//discern the event type, and show the frequency if needed
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("eventType"));
-		int eventType = serializedObject.FindProperty("eventType").intValue;
+		EditorTranslation.PropertyField(eventTypeProp);
+		int eventType = eventTypeProp.intValue;
 		if(eventType == 2)
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("frequency"));
+			EditorTranslation.PropertyField(frequencyProp);
 		}
 
 		GUILayout.Space(10);
@@ -38,7 +43,7 @@ public class ConditionAreaInspector : ConditionInspectorBase
 
 		if (GUI.changed)
 		{
-			serializedObject.FindProperty("filterTag").stringValue = chosenTag;
+			filterTagProp.stringValue = chosenTag;
 			serializedObject.ApplyModifiedProperties();
 		}
 	}
