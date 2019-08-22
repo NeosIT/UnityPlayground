@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -15,7 +16,13 @@ public class DestroyActionInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
-		base.OnInspectorGUI();
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DestroyAction.target)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DestroyAction.deathEffect)));
+
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 
 		if(!CheckIfAssigned("deathEffect", true))
 		{

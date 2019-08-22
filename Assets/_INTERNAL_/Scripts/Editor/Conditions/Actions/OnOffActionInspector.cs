@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -16,7 +17,14 @@ public class OnOffActionInspector : InspectorBase
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
 		GUILayout.Space(10);
-		base.OnInspectorGUI();
+
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(OnOffAction.objectToAffect)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(OnOffAction.justMakeInvisible)));
+
+		if (serializedObject.hasModifiedProperties)
+		{
+			serializedObject.ApplyModifiedProperties();
+		}
 
 		if(serializedObject.FindProperty("justMakeInvisible").boolValue)
 		{

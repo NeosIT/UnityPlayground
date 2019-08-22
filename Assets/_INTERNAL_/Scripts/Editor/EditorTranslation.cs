@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Karambolo.PO;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
@@ -121,13 +122,13 @@ namespace UnityEditor.Globalization
         {
             // TODO test this. thanks to unity this has to be very dirty and must be tested!
 
-            Type GetFieldType()
-            {
-                // do some hacking because serializedproperty does not expose its objectreference type
-                return prop.serializedObject.targetObject.GetType().GetField(prop.name).FieldType;
-            }
-
             var label = new GUIContent(_(prop.displayName), string.IsNullOrWhiteSpace(tooltip) ? null : _(tooltip));
+
+            var headerAttribute = GetAttribute<HeaderAttribute>(prop);
+            if (headerAttribute != null)
+            {
+                GUILayout.Label(_(headerAttribute.header), EditorStyles.boldLabel);
+            }
 
             switch (prop.propertyType)
             {
@@ -143,24 +144,28 @@ namespace UnityEditor.Globalization
                 case SerializedPropertyType.Integer:
                     prop.intValue = EditorGUILayout.IntField(label, prop.intValue);
                     break;
+                case SerializedPropertyType.Color:
+                    prop.colorValue = EditorGUILayout.ColorField(label, prop.colorValue);
+                    break;
+                case SerializedPropertyType.String when GetAttribute<TextAreaAttribute>(prop) != null:
+                    EditorGUILayout.PrefixLabel(label);
+                    prop.stringValue = EditorGUILayout.TextArea(prop.stringValue);
+                    break;
+                case SerializedPropertyType.String:
+                    prop.stringValue = EditorGUILayout.TextField(label, prop.stringValue);
+                    break;
                 case SerializedPropertyType.Enum:
-                    var displayedOptions = Enum.GetNames(GetFieldType()).Select(_).ToArray();
+                    var displayedOptions = Enum.GetNames(GetFieldType(prop)).Select(_).ToArray();
                     prop.enumValueIndex = EditorGUILayout.Popup(label, prop.enumValueIndex, displayedOptions);
                     break;
                 case SerializedPropertyType.ObjectReference:
-                    prop.objectReferenceValue = EditorGUILayout.ObjectField(label, prop.objectReferenceValue, GetFieldType(), true);
+                    prop.objectReferenceValue =
+                        EditorGUILayout.ObjectField(label, prop.objectReferenceValue, GetFieldType(prop), true);
                     break;
-                case SerializedPropertyType.Generic:
-                    if (GetFieldType() == typeof(UnityEvent))
-                    {
-                        var rect = EditorGUILayout.BeginHorizontal();
-                        Drawer.OnGUI(rect, prop, label);
-                        EditorGUILayout.EndHorizontal();
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Unknown property type: " + prop.propertyType);
-                    }
+                case SerializedPropertyType.Generic when GetFieldType(prop) == typeof(UnityEvent):
+                    var rect = EditorGUILayout.BeginHorizontal();
+                    Drawer.OnGUI(rect, prop, label);
+                    EditorGUILayout.EndHorizontal();
                     break;
                 default:
                     Debug.LogWarning("Unknown property type: " + prop.propertyType);
@@ -176,7 +181,21 @@ namespace UnityEditor.Globalization
         public static void PropertyTagField(SerializedProperty prop)
         {
             prop.stringValue = EditorGUILayout.TagField(_(prop.displayName), prop.stringValue);
-
         }
+
+        #region Helper
+
+        private static Type GetFieldType(SerializedProperty prop)
+        {
+            // do some hacking because serializedproperty does not expose its objectreference type
+            return prop.serializedObject.targetObject.GetType().GetField(prop.name).FieldType;
+        }
+
+        private static T GetAttribute<T>(SerializedProperty prop) where T : Attribute
+        {
+            return prop.serializedObject.targetObject.GetType().GetField(prop.name).GetCustomAttribute<T>();
+        }
+
+        #endregion
     }
 }

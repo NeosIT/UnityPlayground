@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -16,25 +17,25 @@ public class DialogueBalloonActionInspector : InspectorBase
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
 		//Contents
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("textToDisplay"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("backgroundColor"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("textColor"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.textToDisplay)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.backgroundColor)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.textColor)));
 
 		//Options
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("targetObject"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("disappearMode"));
-		int isUsingKey = serializedObject.FindProperty("disappearMode").intValue;
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.targetObject)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.disappearMode)));
+		int isUsingKey = serializedObject.FindProperty(nameof(DialogueBalloonAction.disappearMode)).intValue;
 		if(isUsingKey == 1)
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("keyToPress"));
+			EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.keyToPress)));
 		}
 		else
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("timeToDisappear"));
+			EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.timeToDisappear)));
 		}
 
 		//Continue dialogue
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("followingText"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(DialogueBalloonAction.followingText)));
 
 		EditorGUILayout.HelpBox(tipMessage, MessageType.Info);
 

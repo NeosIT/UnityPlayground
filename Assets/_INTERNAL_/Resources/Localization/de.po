@@ -146,7 +146,7 @@ msgstr "LEVEL NEU LADEN"
 #: Assets/_INTERNAL_/Scripts/Editor/Conditions/Actions/LoadLevelActionInspector.cs:51
 #: Assets/_INTERNAL_/Scripts/Editor/Conditions/Actions/LoadLevelActionInspector.cs:69
 msgid "Scene to load"
-msgstr "Szene, die geladen werden soll"
+msgstr "Szene"
 
 #: Assets/_INTERNAL_/Scripts/Editor/Conditions/Actions/LoadLevelActionInspector.cs:69
 msgid "No scenes available!"
@@ -642,6 +642,9 @@ msgstr "Andere Einstellungen"
 msgid "Prefab To Spawn"
 msgstr "Ersellbares Prefab"
 
+msgid "Prefab To Create"
+msgstr "Ersellbares Prefab"
+
 msgid "Spawn Interval"
 msgstr "Erstellungs-Inverval"
 
@@ -710,3 +713,66 @@ msgstr "Gedrückt halten"
 
 msgid "Initial Delay"
 msgstr "Startverzögerung"
+
+msgid "Amount Needed"
+msgstr "Benötigte Menge"
+
+msgid "New Position"
+msgstr "Neue Position"
+
+msgid "Relative To This Object"
+msgstr "Relativ zu diesem Objekt"
+
+msgid "Death Effect"
+msgstr "Effekt bei Tod"
+
+msgid "ObjectThatCollided"
+msgstr "Berührtes Objekt"
+
+msgid "ThisObject"
+msgstr "Dieses Objekt"
+
+msgid "Contents"
+msgstr "Inhalt"
+
+msgid "Options"
+msgstr "Einstellungen"
+
+msgid "Continue dialogue"
+msgstr "Dialog fortführen"
+
+msgid "Text Color"
+msgstr "Textfarbe"
+
+msgid "Text To Display"
+msgstr "Text"
+
+msgid "Target Object"
+msgstr "Zielobjekt"
+
+msgid "Disappear Mode"
+msgstr "Ausblenden-Modus"
+
+msgid "Following Text"
+msgstr "Nächster Text"
+
+msgid "ButtonPress"
+msgstr "Tastendruck"
+
+msgid "Time"
+msgstr "Zeit"
+
+msgid "Time To Disappear"
+msgstr "Ausblenden-Zeit"
+
+msgid "Object To Affect"
+msgstr "Betroffenes Objekt"
+
+msgid "Just Make Invisible"
+msgstr "Nur unsichtbar machen"
+
+msgid "Object To Move"
+msgstr "Zu bewegendes Objekt"
+
+msgid "Stop Movements"
+msgstr "Bewegung stoppen"

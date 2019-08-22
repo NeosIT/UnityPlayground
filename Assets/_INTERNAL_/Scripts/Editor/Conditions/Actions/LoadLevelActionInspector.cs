@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 using UnityEditor;
 using static UnityEngine.Globalization.Translation;
 
@@ -21,7 +22,8 @@ public class LoadLevelActionInspector : InspectorBase
 		if(EditorBuildSettings.scenes.Length > 0)
 		{
 			int sceneId = 0;
-			string sceneNameProperty = serializedObject.FindProperty("levelName").stringValue;
+			var levelNameProp = serializedObject.FindProperty(nameof(LoadLevelAction.levelName));
+			string sceneNameProperty = levelNameProp.stringValue;
 
 			//get available scene names and clean the names
 			string[] sceneNames = new string[EditorBuildSettings.scenes.Length + 1];
@@ -29,8 +31,7 @@ public class LoadLevelActionInspector : InspectorBase
 			int i = 1;
 			foreach(EditorBuildSettingsScene s in EditorBuildSettings.scenes)
 			{
-				int lastSlash = s.path.LastIndexOf("/");
-				string shortPath = s.path.Substring(lastSlash+1, s.path.Length-7-lastSlash);
+				var shortPath = Path.GetFileNameWithoutExtension(s.path);
 				sceneNames[i] = shortPath;
 
 				if(shortPath == sceneNameProperty)
@@ -57,11 +58,11 @@ public class LoadLevelActionInspector : InspectorBase
 
 			if(sceneId == 0)
 			{
-				serializedObject.FindProperty("levelName").stringValue = LoadLevelAction.SAME_SCENE; //this means same scene
+				levelNameProp.stringValue = LoadLevelAction.SAME_SCENE; //this means same scene
 			}
 			else
 			{
-				serializedObject.FindProperty("levelName").stringValue = sceneNames[sceneId];
+				levelNameProp.stringValue = sceneNames[sceneId];
 			}
 		}
 		else

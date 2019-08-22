@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -16,15 +17,15 @@ public class TeleportActionInspector : InspectorBase
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
 		GUILayout.Space(10);
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("objectToMove"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(TeleportAction.objectToMove)));
 
-		if(!CheckIfAssigned("objectToMove", false))
+		if(!CheckIfAssigned(nameof(TeleportAction.objectToMove), false))
 		{
 			EditorGUILayout.HelpBox(objectWarning, MessageType.Warning);
 		}
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("newPosition"));
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("stopMovements"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(TeleportAction.newPosition)));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(TeleportAction.stopMovements)));
 
 		if (GUI.changed)
 		{

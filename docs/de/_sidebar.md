@@ -6,5 +6,6 @@
   * [Gameplay](de/components/gameplay.md)
   * [Attribute](de/components/attributes.md)
   * [Bedingungen](de/components/conditions.md)
+  * [Aktionen](de/components/actions.md)
 * [Herausforderungen](de/challenges.md)
 * [Entwickler](de/developers.md)

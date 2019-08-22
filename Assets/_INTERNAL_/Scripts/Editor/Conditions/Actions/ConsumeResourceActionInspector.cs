@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CanEditMultipleObjects]
@@ -24,7 +25,7 @@ public class ConsumeResourceActionInspector : ConditionInspectorBase
 
 		GUILayout.Space(10);
 		//draw the popup that displays the names of Resource types, taken from the "InventoryResources" ScriptableObject
-		SerializedProperty resourceIndexProp = serializedObject.FindProperty("checkFor");
+		SerializedProperty resourceIndexProp = serializedObject.FindProperty(nameof(ConsumeResourceAction.checkFor));
 		int chosenType = resourceIndexProp.intValue; //take the int value from the property
 
 		EditorGUILayout.BeginHorizontal();
@@ -34,7 +35,7 @@ public class ConsumeResourceActionInspector : ConditionInspectorBase
 
 		resourceIndexProp.intValue = chosenType; //put the value back into the property
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("amountNeeded"));
+		EditorTranslation.PropertyField(serializedObject.FindProperty(nameof(ConsumeResourceAction.amountNeeded)));
 
 		GUILayout.Space(10);
 		//Display a button to jump to the "InventoryResources" ScriptableObject
