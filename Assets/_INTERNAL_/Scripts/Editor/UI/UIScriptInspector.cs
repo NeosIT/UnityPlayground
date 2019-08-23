@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using UnityEditor.Globalization;
 using static UnityEngine.Globalization.Translation;
 
 [CustomEditor(typeof(UIScript))]
@@ -15,18 +16,22 @@ public class UIScriptInspector : InspectorBase
 
 	public override void OnInspectorGUI()
 	{
+		var gameTypeProp = serializedObject.FindProperty(nameof(UIScript.gameType));
+		var numberOfPlayersProp = serializedObject.FindProperty(nameof(UIScript.numberOfPlayers));
+		var scoreToWinProp = serializedObject.FindProperty(nameof(UIScript.scoreToWin));
+
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
-		nOfPlayers = serializedObject.FindProperty("numberOfPlayers").intValue;
-		gameType = serializedObject.FindProperty("gameType").intValue;
+		nOfPlayers = numberOfPlayersProp.intValue;
+		gameType = gameTypeProp.intValue;
 
 		nOfPlayers = EditorGUILayout.Popup(_("Number of players"), nOfPlayers, readablePlayerEnum);
 
 		gameType = EditorGUILayout.Popup(_("Game type"), gameType, readableGameTypesEnum);
 		if(gameType == 0) //score game
 		{
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("scoreToWin"));
+			EditorTranslation.PropertyField(scoreToWinProp);
 		}
 
 		if(gameType == 1) //life
@@ -35,8 +40,8 @@ public class UIScriptInspector : InspectorBase
 		}
 
 		//write all the properties back
-		serializedObject.FindProperty("gameType").intValue = gameType;
-		serializedObject.FindProperty("numberOfPlayers").intValue = nOfPlayers;
+		gameTypeProp.intValue = gameType;
+		numberOfPlayersProp.intValue = nOfPlayers;
 
 		if(GUI.changed)
 		{

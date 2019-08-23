@@ -235,6 +235,10 @@ msgstr "Zurücksetzen"
 msgid "Apply"
 msgstr "Übernehmen"
 
+#: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:23
+msgid "Mass"
+msgstr "Masse"
+
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:24
 msgid "Friction"
 msgstr "Reibung"
@@ -245,7 +249,7 @@ msgstr "Drehungsreibung"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:26
 msgid "Gravity"
-msgstr "Gravitation"
+msgstr "Schwerkraft"
 
 #: Assets/_INTERNAL_/Scripts/Editor/DefaultComponents/Rigidbody2DInspector.cs:44
 msgid "Freeze Position"
@@ -776,3 +780,6 @@ msgstr "Zu bewegendes Objekt"
 
 msgid "Stop Movements"
 msgstr "Bewegung stoppen"
+
+msgid "Score To Win"
+msgstr "Erforderliche Punkte"

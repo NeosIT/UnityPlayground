@@ -1,7 +1,6 @@
 * [Startseite](de/)
-* [Erste Schritte](de/getting-started.md)
-* [Übersicht](de/overview.md)
-* Alle Skripts
+* [Einführung](de/introduction.md)
+* [Alle Skripts](de/components.md)
   * [Bewegung](de/components/movement.md)
   * [Gameplay](de/components/gameplay.md)
   * [Attribute](de/components/attributes.md)

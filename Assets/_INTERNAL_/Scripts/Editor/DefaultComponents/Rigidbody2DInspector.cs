@@ -20,7 +20,7 @@ public class Rigidbody2DInspector : Editor
 		//EditorGUILayout.PropertyField(serializedObject.FindProperty("m_BodyType"));
 		//EditorGUILayout.LabelField("Physical Properties", EditorStyles.boldLabel);
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Mass"));
+		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Mass"), new GUIContent(_("Mass")));
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_LinearDrag"), new GUIContent(_("Friction")));
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_AngularDrag"), new GUIContent(_("Angular Friction")));
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("m_GravityScale"), new GUIContent(_("Gravity")));

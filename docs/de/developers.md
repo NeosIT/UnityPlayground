@@ -19,9 +19,9 @@ sh setup.sh
 npm install --global docsify-cli
 ```
 
-### Dokumentation bauen
+### Dokumentation verwenden
 
-Die docs können via Docsify zu HTML umgewandelt werden (und im Browser begutachtet werden).
+Docsify kommt mit einem integrierten HTTP Server der die `index.html` ausliefert welche dann die Dokumentation darstellt.
 
 ```bash
 docsify serve

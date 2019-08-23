@@ -1,4 +1,4 @@
-# Übersicht
+# Alle Skripts
 
 > Klicke auf die Bilder um eine ausführliche Erklärung zu erhalten.
 
