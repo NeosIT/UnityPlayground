@@ -21,7 +21,7 @@ npm install --global docsify-cli
 
 ### Dokumentation verwenden
 
-Docsify kommt mit einem integrierten HTTP Server der die `index.html` ausliefert welche dann die Dokumentation darstellt.
+Docsify kommt mit einem integrierten HTTP Server, der die `index.html` ausliefert, welche dann die Dokumentation darstellt.
 
 ```bash
 docsify serve

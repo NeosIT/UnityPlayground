@@ -1,6 +1,6 @@
 * [Startseite](de/)
 * [Einführung](de/introduction.md)
-* [Alle Skripts](de/components.md)
+* [Alle Skripte](de/components.md)
   * [Bewegung](de/components/movement.md)
   * [Gameplay](de/components/gameplay.md)
   * [Attribute](de/components/attributes.md)

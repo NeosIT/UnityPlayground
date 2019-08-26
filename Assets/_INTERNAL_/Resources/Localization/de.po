@@ -397,7 +397,7 @@ msgstr "Boden-Tag"
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/MoveWithArrowsInspector.cs:10
 msgid "The GameObject moves when pressing specific keys. Choose between Arrows or WASD."
-msgstr "Das GameObject bewegt sich bei Tastendruck. Entscheide dich zwischen WASD und Pfeiltasten."
+msgstr "Das GameObject bewegt sich bei Tastendruck. Entscheide dich zwischen WASD- und Pfeiltasten."
 
 #: Assets/_INTERNAL_/Scripts/Editor/Movement/MoveWithArrowsInspector.cs:11
 msgid "If you want, you can constrain movement on the X/Y axes in the Rigidbody2D's properties."
@@ -611,10 +611,10 @@ msgid "AllDirections"
 msgstr "Alle Richtungen"
 
 msgid "OnlyHorizontal"
-msgstr "Nur Horizontal"
+msgstr "Nur horizontal"
 
 msgid "OnlyVertical"
-msgstr "Nur Vertikal"
+msgstr "Nur vertikal"
 
 msgid "Look Axis"
 msgstr "Richtung"
@@ -632,7 +632,7 @@ msgid "Relative Axis"
 msgstr "Relativ zur Achse"
 
 msgid "Direction Change Interval"
-msgstr "Änderungsinterval"
+msgstr "Intervall für Richtungsänderung"
 
 msgid "Keep Near Starting Point"
 msgstr "Im Startgebiet bleiben"
@@ -650,10 +650,10 @@ msgid "Prefab To Create"
 msgstr "Ersellbares Prefab"
 
 msgid "Spawn Interval"
-msgstr "Erstellungs-Inverval"
+msgstr "Erstellungsinverval"
 
 msgid "Creation Rate"
-msgstr "Erstellungs-Geschwindigkeit"
+msgstr "Erstellungsgeschwindigkeit"
 
 msgid "Key To Press"
 msgstr "Taste"
@@ -668,13 +668,13 @@ msgid "Pickup Key"
 msgstr "Aufheben-Taste"
 
 msgid "Drop Key"
-msgstr "Fallen-Lassen-Taste"
+msgstr "Fallenlassen-Taste"
 
 msgid "Pick Up Distance"
 msgstr "Aufheben-Reichweite"
 
 msgid "Time To Destruction"
-msgstr "Zerstörungstimer"
+msgstr "Zeit bis Zerstörung"
 
 msgid "Points Worth"
 msgstr "Wert (Punkte)"
@@ -704,7 +704,7 @@ msgid "Happen Only Once"
 msgstr "Einmalig"
 
 msgid "Frequency"
-msgstr "Frequenz"
+msgstr "Häufigkeit"
 
 msgid "JustPressed"
 msgstr "Gerade Gedrückt"

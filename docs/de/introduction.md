@@ -19,7 +19,7 @@ Viel Spaß mit Unity-Playground!
 
 Unity Playground soll sehr einfach um rein zu kommen und du kannst dich in weniger als 30 Minuten mit den Grundlagen vertraut machen. Du musst nur die Projektstruktur (siehe [Projektstruktur](#projekt-struktur)) und die Konzepte verstehen, die der Playground implementiert sind ([Allgemeine Konzepte](#allgemeine-konzepte)). Dann solltest du wahrscheinlich einen Blick auf die Skripte werfen, beginnend mit denen, die in der Kategorie [Bewegung](de/components/movement.md) gruppiert sind.
 
-Wenn du weitere Informationen zu einem spezifischen Skript brauchst, gehe zu [Alle Skripts](de/components.md).
+Wenn du weitere Informationen zu einem spezifischen Skript brauchst, gehe zu [Alle Skripte](de/components.md).
 
 ### Voraussetzungen
 
@@ -50,7 +50,7 @@ Das Ergebnis sollte ähnlich wie dieses aussehen:
 
 ### Grundlagen
 
-Bevor du Unity Playground verwendest, sollten du dich bereits mit den Kernkonzepten von Unity vertraut gemacht haben. Eine sehr gute Ressource sind die interaktiven Lernprogramme (Englisch), die auf der Seite _Learn_, im Unity Hub finden kannst. Alternativ können Sie auch den Abschnitt Benutzeroberfläche und Grundlagen in den offiziellen Tutorials durchgehen.
+Bevor du Unity Playground verwendest, sollten du dich bereits mit den Kernkonzepten von Unity vertraut gemacht haben. Eine sehr gute Ressource sind die interaktiven Lernprogramme (Englisch), die auf der Seite _Learn_, im Unity Hub finden kannst. Alternativ kannst du auch den Abschnitt Benutzeroberfläche und Grundlagen in den offiziellen Tutorials durchgehen.
 
 ![Unity Hub Learn](../_images/introduction/unity-hub-learn.jpg)
 
@@ -60,17 +60,17 @@ Ein Spiel mit Unity Playground zu machen ist super einfach! Lass uns ein sehr ei
 
 ### 1. Erstellen des Spielers
 
-Ziehe zunächst ein Raumschiffbild aus dem Ordner `/Images/Spaceships` direkt in das Fenster `Hierarchie`. Da es als `Sprite` importiert wurde, wird Unity ein `GameObject` für Sie erstellen. Dies wird der Spieler sein. Nennen wir das Objekt also _Raumschiff_ und kennzeichnen dieses GameObject oben im `Inspektor`-Fenster kennzeichne es als `Spieler`. Verwende dazu das Dropdown-Menü _Tag_.
+Ziehe zunächst ein Raumschiffbild aus dem Ordner `/Images/Spaceships` direkt in das Fenster `Hierarchie`. Da es als `Sprite` importiert wurde, wird Unity ein `GameObject` für dich erstellen. Dies wird der Spieler sein. Nennen wir das Objekt also _Raumschiff_ und kennzeichnen dieses GameObject oben im `Inspektor`-Fenster kennzeichne es als `Spieler`. Verwende dazu das Dropdown-Menü _Tag_.
 
 ![Raumschiff Inspektor](../_images/de/introduction/inspector-ship.jpg)
 
-Lass' uns als nächstes die Schiffsbewegung machen. Wir benötigen zwei Komponenten: [Move](de/components/movement.md#move), um die Interaktivität zu gewährleisten, und einen `Rigidbody2D`, um sicherzustellen, dass das Schiff den Gesetzen der Physik folgt. Ziehe ein [Move](de/components/movement.md#move)-Skript aus dem Ordner `/Scripts/Movement` in den Inspektor des Schiffes.
+Lass uns als nächstes die Schiffsbewegung machen. Wir benötigen zwei Komponenten: [Move](de/components/movement.md#move), um die Interaktivität zu gewährleisten, und einen `Rigidbody2D`, um sicherzustellen, dass das Schiff den Gesetzen der Physik folgt. Ziehe ein [Move](de/components/movement.md#move)-Skript aus dem Ordner `/Scripts/Movement` in den Inspektor des Schiffes.
 
 Wenn das Ziehen ein Problem darstellt, kannst du auch das Dropdown-Menü "Komponente hinzufügen" direkt am unteren Rand des Inspektor-Fensters verwenden und dann [Move](de/components/movement.md#move) eingeben. Das Skript sollte als erstes Ergebnis angezeigt werden.
 
 ![Raumschiff Inspektor](../_images/de/introduction/inspector-add-component.jpg)
 
-Du wirst feststellen, dass beim Hinzufügen des [Move](de/components/movement.md#move)-Skripts auch eine `Rigidbody2D`-Komponente hinzugefügt wird. Dies liegt daran, dass Move den `Rigidbody2D` benötigt, um zu funktionieren.
+Du wirst feststellen, dass beim Hinzufügen des [Move](de/components/movement.md#move)-Skripte auch eine `Rigidbody2D`-Komponente hinzugefügt wird. Dies liegt daran, dass Move den `Rigidbody2D` benötigt, um zu funktionieren.
 
 > **Szenen Gizmos**
 >
@@ -83,25 +83,25 @@ Du wirst feststellen, dass beim Hinzufügen des [Move](de/components/movement.md
 
 ### 2. Anpassen der Physik
 
-Jetzt müssen wir die physikalischen Werte unseres Schiffes einstellen. Bei der `RigidBody2D`-Komponente möchten wir die `Schwerkraft` auf `0` ändern, damit das Schiff nicht herunterfällt. Du kannst auch die bevorzugte Steuerungsmethode (Pfeile oder WASD) auswählen und `Drehung berücksichtigen` aktivieren (wenn das für deine Grafiken sinnvoll ist) und dann die `Richtung` auswählen. Drücke Sie jetzt oben im Editor auf Play (:arrow_forward:), um das Spiel zu testen.
+Jetzt müssen wir die physikalischen Werte unseres Schiffes einstellen. Bei der `RigidBody2D`-Komponente möchten wir die `Schwerkraft` auf `0` ändern, damit das Schiff nicht herunterfällt. Du kannst auch die bevorzugte Steuerungsmethode (Pfeile oder WASD) auswählen und `Drehung berücksichtigen` aktivieren (wenn das für deine Grafiken sinnvoll ist) und dann die `Richtung` auswählen. Drücke jetzt oben im Editor auf Play (:arrow_forward:), um das Spiel zu testen.
 
 Du wirst wahrscheinlich bemerken, dass das Schiff viel driftet, was die Kontrolle erschwert. Setze die `Reibung` am `Rigidbody2D` auf 10. Wenn du jetzt spielst, wirst du feststellen, dass das Driftverhalten weg ist, aber das Objekt ist auch langsamer, viel langsamer. Dies liegt daran, dass der Kraft, die sich bewegt hat, nun die Reibung entgegenwirkt.
 
-Daher müssen wir auch die Eigenschaft `Geschwindigkeit` in der [Move](de/components/movement.md#move)-Komponente anpassen. Stell' es auf `8` ein und drücke erneut die Play-Taste. Du wirst sehen, dass das Schiff jetzt viel einfacher zu kontrollieren ist. Wir haben gerade unseren ersten Gameplay-Tweak gemacht! Herzlichen Glückwunsch, du bist nun ein Game-Designer!
+Daher müssen wir auch die Eigenschaft `Geschwindigkeit` in der [Move](de/components/movement.md#move)-Komponente anpassen. Stell es auf `8` ein und drücke erneut die Play-Taste. Du wirst sehen, dass das Schiff jetzt viel einfacher zu kontrollieren ist. Wir haben gerade unseren ersten Gameplay-Tweak gemacht! Herzlichen Glückwunsch, du bist nun ein Game-Designer!
 
 > **Play-Modus**
 >
-> Wenn du im "Play-Modus" Komponentenwerte bearbeitest, gehen Ihre Änderungen verloren, sobald das Spiel gestoppt wird. Denk' daran, Änderungen nur vorzunehmen, wenn du dich nicht im Play-Modus befinden! Du solltest Änderungen im Play-Modus nur vornehmen, wenn du temporäre Werte testen willst, bei denen du kein Problem hast sie zu verlieren.
+> Wenn du im "Play-Modus" Komponentenwerte bearbeitest, gehen Ihre Änderungen verloren, sobald das Spiel gestoppt wird. Denk daran, Änderungen nur vorzunehmen, wenn du dich nicht im Play-Modus befinden! Du solltest Änderungen im Play-Modus nur vornehmen, wenn du temporäre Werte testen willst, bei denen du kein Problem hast sie zu verlieren.
 
 ### 3. Hinzufügen von Hindernissen und Kollisionen
 
-Wir haben etwas Spielbares, aber es ist nicht wirklich ein Spiel. Fügen wir einige Hindernisse hinzu, durch die das Schiff navigieren muss, indem Sie ein Asteroiden-Sprite aus dem Ordner `/Images` ziehen. Wie zuvor wird Unity ein GameObject für uns erstellen.
+Wir haben etwas Spielbares, aber es ist nicht wirklich ein Spiel. Fügen wir einige Hindernisse hinzu, durch die das Schiff navigieren muss, indem du ein Asteroiden-Sprite aus dem Ordner `/Images` ziehst. Wie zuvor wird Unity ein GameObject für uns erstellen.
 
 Wir müssen zwei Komponenten hinzufügen: `Rigidbody2D` und `PolygonCollider2D`. Der `PolygonCollider2D` bewirkt, dass dieses Objekt andere Objekte kollidieren (berühren) kann. Wir müssen diese Komponente auch zum Schiff hinzufügen.
 
 ![Scene Ship Astroid](../_images/introduction/scene-ship-astroid.png)
 
-Versuche' nach dem Hinzufügen von Collidern die Play-Taste zu drücken. Du wirst bemerken, dass das Schiff den Asteroiden jetzt herumschieben kann. Vergiss nicht, die `Schwerkraft` des Asteroiden auf `0` zu setzen, da er ansonsten herunter fällt! Sie können auch die Parameter des Asteroiden ändern: `Reibung`, `Drehungsreibung` und `Masse`, damit er sich so verhält, wie du es möchtest. Stell' die Masse auf `10` ein, damit das Objekt schwerer wird und nicht wegfliegt, wenn es dein Schiff berühren. Ein so großer Asteroid muss sehr schwer sein!
+Versuche nach dem Hinzufügen von Collidern die Play-Taste zu drücken. Du wirst bemerken, dass das Schiff den Asteroiden jetzt herumschieben kann. Vergiss nicht, die `Schwerkraft` des Asteroiden auf `0` zu setzen, da er ansonsten herunter fällt! Du kannst auch die Parameter des Asteroiden ändern: `Reibung`, `Drehungsreibung` und `Masse`, damit er sich so verhält, wie du es möchtest. Stell die Masse auf `10` ein, damit das Objekt schwerer wird und nicht wegfliegt, wenn es dein Schiff berühren. Ein so großer Asteroid muss sehr schwer sein!
 
 Machen wir diesen Asteroiden jetzt zu einer Bedrohung. Du müsst dem Asteroiden ein [ModifyHealthAttribute](de/components/attributes.md#modifyhealthattribute)-Skript hinzufügen, das sich unter `/Scripts/Attributes` finden lässt.
 
@@ -111,19 +111,19 @@ Dann muss Schiff in der Lage sein, diesen Schaden zu erkennen. Dazu gibt es ein 
 
 ![Schiff HealthSystemAttribute](../_images/de/components/attributes/gui-health-system-attribute.jpg)
 
-Dies gibt dem Spieler nicht nur Gesundheit, sondern ermöglicht es uns, das Start-Leben festzulegen. Mach' den Asteroiden zum Prefab und duplizieren Sie ihn (Tastenkürzel: `STRG` + `D` für Windows, `CMD` + `D` für Mac), um ein kleines Asteroidenfeld um das Schiff zu erstellen.
+Dies gibt dem Spieler nicht nur Gesundheit, sondern ermöglicht es uns, das Start-Leben festzulegen. Mach den Asteroiden zum Prefab und dupliziere ihn (Tastenkürzel: `STRG` + `D` für Windows, `CMD` + `D` für Mac), um ein kleines Asteroidenfeld um das Schiff zu erstellen.
 
 > **Prefabs**
 >
 > Bevor du den Asteroiden duplizierst, solltest du ihn wahrscheinlich in ein Prefab umwandeln, damit du zu einem späteren Zeitpunkt alle Asteroiden auf einmal bearbeiten kannst.
 >
-> Wenn du nicht wissen, was ein Prefab ist, und mehr darüber erfahren möchtest, lese im [Handbuch](https://docs.unity3d.com/Manual/Prefabs.html) (Englisch) nach oder schau' dir ein kurzes [Video-Tutorial](https://learn.unity.com/tutorial/essential-unity-concepts) (Englisch - Alternativen lassen sich auf YouTube problemlos finden) an.
+> Wenn du nicht wissen, was ein Prefab ist, und mehr darüber erfahren möchtest, lese im [Handbuch](https://docs.unity3d.com/Manual/Prefabs.html) (Englisch) nach oder schau dir ein kurzes [Video-Tutorial](https://learn.unity.com/tutorial/essential-unity-concepts) (Englisch - Alternativen lassen sich auf YouTube problemlos finden) an.
 >
 > Prefabs sind ein grundlegendes Konzept in Unity, wenn du ein großes Spiel entwickelst oder im Team arbeitest. Du kannst sie vorerst auch sein lassen und dich auf dein erstes Spiel konzentrieren. Später kannst du immer noch darauf zurückgreifen.
 
 ### 4. Hinzufügen einer Benutzeroberfläche
 
-Wir haben bist jetzt kein Feedback, wenn der Spieler getroffen wird. Fügen wir also eine Benutzeroberfläche hinzu, um die Gesundheit des Players zu visualisieren. Zieh' das UserInterface-Prefab aus dem Ordner `/Prefabs` in die Szene. Wenn du dir das `Spiel`-Fenster anguckst siehst du Score und Health, welche automatisch eingeblendet werden.
+Wir haben bist jetzt kein Feedback, wenn der Spieler getroffen wird. Fügen wir also eine Benutzeroberfläche hinzu, um die Gesundheit des Players zu visualisieren. Zieh das UserInterface-Prefab aus dem Ordner `/Prefabs` in die Szene. Wenn du dir das `Spiel`-Fenster anguckst siehst du Score und Health, welche automatisch eingeblendet werden.
 
 Wenn du das Spiel jetzt spielst, wirst du feststellen, dass das berühren eines Asteroiden einen Punkt Gesundheit abzieht! Und wenn du zu viele Treffer abkriegst, ist das Spiel vorbei!
 
@@ -135,7 +135,7 @@ Worum geht es also in diesem Spiel? Nehmen wir an, wir möchten, dass das Schiff
 
 Füge einen Stern aus dem Ordner `/Images` hinzu, indem du ihn in die Szene ziehst. Füge ein [Collectable](de/components/attributes.md#collectableattribute)-Skript aus dem Ordner `/Scripts/Attribute` hinzu. Dies macht den Stern zu einem Sammelobjekt und bringt dem Spieler einen Punkt ein.
 
-Aber wie erkennen wir, ob der Stern gesammelt wurde? Wir werden wieder Kollisionen verwenden. Füge ein `PolygonCollider2D` hinzu, aber dieses Mal möchten wir es zu einem Auslöser machen. Aktivieren Sie daher die Eigenschaft `Ist Auslöser`.
+Aber wie erkennen wir, ob der Stern gesammelt wurde? Wir werden wieder Kollisionen verwenden. Füge ein `PolygonCollider2D` hinzu, aber dieses Mal möchten wir es zu einem Auslöser machen. Aktiviere daher die Eigenschaft `Ist Auslöser`.
 
 > **Auslöser**
 >
@@ -149,21 +149,21 @@ Wenn du das Spiel jetzt spielst, wirst feststellen, dass der Stern vom Schiff ei
 
 Schließlich musst du das UI-GameObject auswählen und im UI-Skript sicherstellen, dass der `Spieltyp` auf `Punkte` gesetzt ist und der `Erforderliche Punkte` 5 ist. Wenn dies nicht mit der Anzahl der Sterne im Spiel übereinstimmt, ist es unmöglich zu gewinnen!
 
-Drück' erneut auf "Play" und prüf', ob du das Spiel gewinnen kannst. Wenn du alle 5 Sterne bekommst, solltest du eine Nachricht mit der Aufschrift _Spieler 1 gewinnt!_ Erhalten.
+Drück erneut auf "Play" und prüf', ob du das Spiel gewinnen kannst. Wenn du alle 5 Sterne bekommst, solltest du eine Nachricht mit der Aufschrift _Spieler 1 gewinnt!_ Erhalten.
 
-Glückwunsch: Du hast gerade dein erstes Spiel gemacht. Sehr gut! Pass' die Einstellungen so lange an, bis du mit den Steuerelementen, dem Schwierigkeitsgrad und dem Level-Layout zufrieden sind.
+Glückwunsch: Du hast gerade dein erstes Spiel gemacht. Sehr gut! Pass die Einstellungen so lange an, bis du mit den Steuerelementen, dem Schwierigkeitsgrad und dem Level-Layout zufrieden sind.
 
 ### Nächste Schritte
 
 Nachdem du dich jetzt mit Unity und dem Unity Playground vertraut gemacht hast, kannst du fortfahren und komplexere Spiele damit erstellen. Als ersten Schritt kannst du einen Blick auf die [allgemeinen Konzepte](#allgemeine-konzepte) von Unity Playground werfen, um sie besser zu verstehen.
 
-Denken Sie daran: Der Unity Playground soll flexibel sein. Überlege dir deine eigenen Spielgenres oder kopiere ein vorhandenes Spiel. Alles ist in erlaubt.
+Denk daran: Der Unity Playground soll flexibel sein. Überlege dir deine eigenen Spielgenres oder kopiere ein vorhandenes Spiel. Alles ist in erlaubt.
 
 > Hinweis
 >
 > Wenn du lernst Spiele zu entwickeln, ist es normalerweise eine gute Idee, das Gameplay alter Spiele aus den 80er Jahren (wie Asteroids, Arkanoid, Space Invaders, Frogger und viele andere) zu kopieren, weil sie sehr einfach waren. Wenn du dich verbesserst, kannst du mehr und mehr Details hinzufügen und die Interaktion verfeinern.
 
-Wenn du Inspiration benötigst, öffne den Ordner `Examples` und starte eines der Spiele. Untersuche die GameObjects und sieh dir an, wie wir diese erstellt haben. Versuch' dann etwas Ähnliches zu erstellen.
+Wenn du Inspiration benötigst, öffne den Ordner `Examples` und starte eines der Spiele. Untersuche die GameObjects und sieh dir an, wie wir diese erstellt haben. Versuch dann etwas Ähnliches zu erstellen.
 
 ## Allgemeine Konzepte
 
@@ -171,7 +171,7 @@ In diesem Abschnitt wirst du sehr schnell einige grundlegende Konzepte von Unity
 
 ### Info und Warnungen
 
-Alle benutzerdefinierten Skripte in Unity Playground verfügen über ein kleines Infofeld oben, in dem die Funktionsweise des Skripts in wenigen Worten erläutert wird.
+Alle benutzerdefinierten Skripte in Unity Playground verfügen über ein kleines Infofeld oben, in dem die Funktionsweise des Skripte in wenigen Worten erläutert wird.
 
 ![GUI Infobox](../_images/de/introduction/info-and-warning.jpg)
 
@@ -198,15 +198,15 @@ Unity Playground enthält viele tolle Sprites zum Spielen, die sich im Ordner `I
 
 Um ein Bild auf in Playground zu verwenden, musst du es nur irgendwo in den Ordner `Assets` ziehen. Das Bild wird als Sprite importiert und kann dann verwendet werden. Durch einfaches Ziehen in die Szene oder in das Hierarchie-Fenster wird ein neues GameObject erstellt, und du kannst es dann im Spiel verwenden.
 
-Denk' daran, dass Bilder, die nicht quadratisch sind, Transparenz benötigen, um gut auszusehen. Andernfalls wird ein weißer Hintergrund angezeigt. Gute Formate, die Transparenz ermöglichen, sind `.png` oder `.gif`, während `.jpg` keine Transparenz enthält. Denk' auch daran, dass Unity keine animierten GIFs wiedergibt.
+Denk daran, dass Bilder, die nicht quadratisch sind, Transparenz benötigen, um gut auszusehen. Andernfalls wird ein weißer Hintergrund angezeigt. Gute Formate, die Transparenz ermöglichen, sind `.png` oder `.gif`, während `.jpg` keine Transparenz enthält. Denk auch daran, dass Unity keine animierten GIFs wiedergibt.
 
 ## Fortgeschrittene Konzepte
 
-Bist du ein Mentor? Dieser Abschnitt ist ein Muss für Sie! Auch für fortgeschrittene Benutzer empfohlen, die den Spielplatz besser verstehen möchten.
+Bist du ein Mentor? Dieser Abschnitt ist ein Muss für dich! Auch für fortgeschrittene Benutzer empfohlen, die den Spielplatz besser verstehen möchten.
 
 ### Übersicht
 
-Auf den ersten Blick ist es möglicherweise schwer zu verstehen, wie viele Skripte sich in Playground befinden. Für diesen Fall gibt es die [Übersicht](de/components.md) über alle Skripts. Sie sind in Kategorien (Bewegung, Gameplay usw.) unterteilt.
+Auf den ersten Blick ist es möglicherweise schwer zu verstehen, wie viele Skripte sich in Playground befinden. Für diesen Fall gibt es die [Übersicht](de/components.md) über alle Skripte. Sie sind in Kategorien (Bewegung, Gameplay usw.) unterteilt.
 
 Es empfiehlt sich diese Seite dann, bei einem Workshop für Anfänger, auszudrucken. Die Seite ist nicht wirklich Drucker freundlich, da sie in Markdown geschrieben ist, damit sie einfacher zu warten und problemlos im Internet angezeigt werden kann. Mit Markdown-To-Word Tools wäre es möglich die Seite zu einem Word Dokument zu machen, anzupassen, als PDF zu exportieren und dann auszudrucken.
 
@@ -261,7 +261,7 @@ Das `UserInterface` ermöglicht es auch, die Art des Spiels zwischen Score, Life
 
 #### Eigene Spielmodi
 
-Bei Verwendung von [Condition](de/components/conditions.md)-Skripts kannst du die `GameWon`- und `GameOver`-Funktionen des `UIScript` mit einem UnityEvent verbinden. Auf diese Weise kannst du benutzerdefinierte Sieg- und Niederlagebedingungen erstellen, indem du Kollisionen und andere Ereignisse nutzt.
+Bei Verwendung von [Condition](de/components/conditions.md)-Skripte kannst du die `GameWon`- und `GameOver`-Funktionen des `UIScript` mit einem UnityEvent verbinden. Auf diese Weise kannst du benutzerdefinierte Sieg- und Niederlagebedingungen erstellen, indem du Kollisionen und andere Ereignisse nutzt.
 
 Ebenso kannst du auf die Funktionen `AddOnePoint` und `RemoveOnePoint` aufrufen, um dasselbe mit Punkten zu tun.
 

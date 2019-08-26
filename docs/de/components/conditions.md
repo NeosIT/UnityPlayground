@@ -1,16 +1,18 @@
 # Bedingungen
 
-Bedingungen sind If-Anweisungen in der Programmierung sehr ähnlich, was bedeutet, dass diese als Zugang zu Aktionen verwendet werden können. Wenn die Bedingung überprüft wurde, werden die angehängten Aktionen ausgeführt. Weitere Informationen darüber, welche Bedingungen ausgeführt werden können, findest du in [Aktionsskripten](de/components/actions.md). Bedingungsskripte haben ein kleines lila "if" in der oberen linken Ecke ihres Symbols.
+Bedingungen sind Anweisungen, die dem Wenn-Dann-Sonst-Schema gleichen. Wenn also eine bestimmte Bedingung zutriftt (z.B. die Farbe des Objektes ist grün), dann wird eine bestimmte Aktion ausgeführt (z.B. drehe das Objekt um 90° nach rechts). Wenn die ursprüngliche Bedingung hingegen nicht zutrifft, dann kann eine optionale Aktion für den Sonst-Fall ausgelöst werden (z.B. ändere die Objektfarbe von grün zu rot).
+
+Wenn die Bedingung überprüft wurde, werden die angehängten Aktionen ausgeführt. Weitere Informationen darüber, welche Bedingungen ausgeführt werden können, findest du in [Aktionsskripten](de/components/actions.md). Bedingungsskripte haben ein kleines lila "if" in der oberen linken Ecke ihres Symbols.
 
 ![Bedingungen](../../_images/components/conditions/conditions.png)
 
-Alle Bedingungsskripts haben einige _gemeinsame Eigenschaften_, die im Folgenden beschrieben werden.
+Alle Bedingungsskripte haben einige _gemeinsame Eigenschaften_, die im Folgenden beschrieben werden.
 
 ## Allgemeines
 
 ### Gameplay Aktionen
 
-Die `Gameplay Aktionen` sind eine Liste von [Aktionsskripten](de/components/actions.md), die ausgeführt werden, wenn die Anforderungen dieses Bedingungsskripts erfüllt sind. In diesem Fall führt Unity die Aktionen in dieser Liste aus, bis eine von ihnen fehlschlägt (nur einige Aktionen können fehlschlagen). Wenn die Aktion nicht fehlschlägt, wird die nächste ausgeführt. Am Ende der Liste werden benutzerdefinierte Aktionen (falls vorhanden, siehe unten) ausgeführt.
+Die `Gameplay Aktionen` sind eine Liste von [Aktionsskripten](de/components/actions.md), die ausgeführt werden, wenn die Anforderungen dieses Bedingungsskripte erfüllt sind. In diesem Fall führt Unity die Aktionen in dieser Liste aus, bis eine von ihnen fehlschlägt (nur einige Aktionen können fehlschlagen). Wenn die Aktion nicht fehlschlägt, wird die nächste ausgeführt. Am Ende der Liste werden benutzerdefinierte Aktionen (falls vorhanden, siehe unten) ausgeführt.
 
 Eine leere Liste von Aktionen würde so aussehen:
 
@@ -20,15 +22,15 @@ Durch Drücken des Plus-Symbols wird eine Liste der Aktionen angezeigt, die hinz
 
 ![GUI Condition Action Select](../../_images/de/components/conditions/gui-condition-action-select.jpg)
 
-Sie entsprechen genau den Skripts aus der Kategorie [Aktionen](de/components/actions.md). Wenn du eine davon auswählst, wird das Skript als Komponente hinzugefügt und automatisch mit der Liste verbunden.
+Sie entsprechen genau den Skripte aus der Kategorie [Aktionen](de/components/actions.md). Wenn du eine davon auswählst, wird das Skript als Komponente hinzugefügt und automatisch mit der Liste verbunden.
 
-> **Hinweis** Aktionsskripte müssen in der Liste der `Gameplay Aktionen` sein, damit sie durch die Bedingung ausgelöst werden. Ein einfaches Hinzufügen eines Aktionsskripts zu einem GameObject fügt es nicht zur Liste hinzu.
+> **Hinweis** Aktionsskripte müssen in der Liste der `Gameplay Aktionen` sein, damit sie durch die Bedingung ausgelöst werden. Ein einfaches Hinzufügen eines Aktionsskripte zu einem GameObject fügt es nicht zur Liste hinzu.
 >
-> **Tipp** Am Ende des Dropdowns kannst du auch einen leeren Slot hinzufügen. Das ist sehr nützlich, um eine Aktion, die auf einem anderen GameObject ist, zu verbinden. Auf diese Weise kannst du deine Logik in Teile aufteilen und die Verwaltung vereinfachen. Um dies in der Praxis zu sehen, öffne das _Roguelike_-Beispielspiel und wähle das Objekt mit dem Namen `InvisibleTrigger` aus. Beachte, dass sich 2 der Aktionen auf separaten Objekten befinden, die diesem übergeordnet sind.
+> **Tipp** Am Ende des Dropdown-Menüs kannst du auch einen leeren Slot hinzufügen. Das ist sehr nützlich, um eine Aktion, die auf einem anderen GameObject ist, zu verbinden. Auf diese Weise kannst du deine Logik in Teile aufteilen und die Verwaltung vereinfachen. Um dies in der Praxis zu sehen, öffne das _Roguelike_-Beispielspiel und wähle das Objekt mit dem Namen `InvisibleTrigger` aus. Beachte, dass sich 2 der Aktionen auf separaten Objekten befinden, die diesem übergeordnet sind.
 
 ### Eigene Aktionen
 
-Ähnlich wie bei `Gameplay Aktionen` werden `Custom Actions` (= _Eigene Aktionen_) ausgeführt, wenn die Anforderungen des Bedingungsskripts erfüllt sind. `Custom Actions` müssen nicht verwendet werden. Wenn die Option "Eigene Aktionen verwenden" deaktiviert ist, wird keine benutzerdefinierte Aktion ausgeführt.
+Ähnlich wie bei `Gameplay Aktionen` werden `Custom Actions` (= _Eigene Aktionen_) ausgeführt, wenn die Anforderungen des Bedingungsskripte erfüllt sind. `Custom Actions` müssen nicht verwendet werden. Wenn die Option "Eigene Aktionen verwenden" deaktiviert ist, wird keine benutzerdefinierte Aktion ausgeführt.
 
 Wenn du diese Option aktivierst, wird eine Liste von Unity-Ereignissen angezeigt, in der du alle Elemente, für die du normalerweise ein UnityEvent verwendest, miteinander verbinden kannst.
 
@@ -76,7 +78,7 @@ Da du wahrscheinlich nicht möchtest, dass bestimmte Objekte das Ereignis auslö
 
 ![GUI ConditionKeyPress](../../_images/de/components/conditions/gui-condition-key-press.jpg)
 
-`ConditionKeyPress` ist eine simple Methode um Aktion an einen Tastendruck zu binden. Zusätzlich zur Auswahl der `Taste` kannst du mit `Eventtyp` (`Gerade Gedrückt` (ähnlich `GetKeyDown`), `Losgelassen` (`GetKeyUp`) oder `Gedrückt halten` (`GetKey`)) die Art des zu hörenden Tastenereignisses auswählen. Wie bei anderen fortlaufenden Aktionen verfügt auch der Modus `Gedrückt halten` über die Eigenschaft `Frequenz`.
+`ConditionKeyPress` ist eine simple Methode um Aktion an einen Tastendruck zu binden. Zusätzlich zur Auswahl der `Taste` kannst du mit `Eventtyp` (`Gerade Gedrückt` (ähnlich `GetKeyDown`), `Losgelassen` (`GetKeyUp`) oder `Gedrückt halten` (`GetKey`)) die Art des zu auslösenden Tastenereignisses auswählen. Wie bei anderen fortlaufenden Aktionen verfügt auch der Modus `Gedrückt halten` über die Eigenschaft `Frequenz`.
 
 `Einmalig` sorgt dafür, dass die Bedingung nur einmal ausgelöst wird. Bei wiederholtem Eintreten der Bedingung werden die Aktionen nicht ausgelöst.
 

@@ -16,7 +16,7 @@ Aus diesem Grund ist es sinnvoll, Aktionen nicht wie gewohnt hinzuzufügen, sond
 
 ![GUI Empty Slot](../../_images/de/components/actions/gui-empty-slot.jpg)
 
-Wenn du eine Aktion auf anderes Objekt packen willst, als das, was mit die Bedingung hat, füge die Aktion einfach als normale Komponente hinzu, gehe zur Liste und verwende die letzte Option, "Leerer Slot". Schließlich musst du das GameObject mit der Aktion auf den soeben hinzugefügten Listenplatz ziehen.
+Wenn du eine Aktion auf ein anderes Objekt als das mit der Bedingung packen willst, füge die Aktion als normale Komponente hinzu, gehe zur Liste und verwende die letzte Option "Leerer Slot". Schließlich musst du das GameObject mit der Aktion auf den soeben hinzugefügten Listenplatz ziehen.
 
 Weitere Informationen findest du in [Gameplay Aktionen](de/components/conditions.md#gameplay-aktionen).
 
@@ -32,7 +32,7 @@ Weitere Informationen findest du in [Gameplay Aktionen](de/components/conditions
 
 Wenn dies zutrifft, wird diese Menge an Ressourcen verbraucht und die folgenden Aktionen werden ausgeführt. Wenn nicht, dann wird keine Ressource verbraucht und die Liste der Aktionen wird angehalten (das bedeutet, die nachfolgenden Aktionen **werden nicht ausgeführt**).
 
-Wie im [ResourceAttribute](de/components/attributes.md#resourceattribute)-Skript kannst du über den Button `Typen bearbeiten` Ressourcentypen hinzufügen/entfernen/umbenennen. Weitere Informationen und eine Übersicht über die Bedeutung von Ressourcen finden Sie unter [Definieren von Ressourcentypen](de/components/attributes.md#ressourcentypen-definieren).
+Wie im [ResourceAttribute](de/components/attributes.md#resourceattribute)-Skript kannst du über den Button `Typen bearbeiten` Ressourcentypen hinzufügen/entfernen/umbenennen. Weitere Informationen und eine Übersicht über die Bedeutung von Ressourcen findest du unter [Definieren von Ressourcentypen](de/components/attributes.md#ressourcentypen-definieren).
 
 ## CreateObjectAction
 
@@ -44,7 +44,7 @@ Wie im [ResourceAttribute](de/components/attributes.md#resourceattribute)-Skript
 
 `CreateObjectAction` generiert ein neues Objekt aus einem Prefab (`Erstellbares Prefab`).
 
-Um zu entscheiden, wo das neue Objekt erstellt wird, kannst du `Neue Position` verwenden, welche sich zu Beginn auf (0,0) befindet. Wenn `Relativ zu diesem Objekt` aktiviert ist, kann `Neue Position` als _local space_ betrachtet werden.
+Um zu entscheiden, wo das neue Objekt erstellt wird, kannst du `Neue Position` verwenden, welche sich zu Beginn auf (0,0) im X-Y-Koordinatensystem befindet. Wenn `Relativ zu diesem Objekt` aktiviert ist, kann `Neue Position` als _local space_ betrachtet werden.
 
 ## DestroyAction
 
@@ -56,9 +56,9 @@ Um zu entscheiden, wo das neue Objekt erstellt wird, kannst du `Neue Position` v
 
 Mit `DestroyAction` können Objekte aus dem Spiel entfernt werden.
 
-Die Eigenschaft `Ziel` kann zwei Werte haben: `Dieses Objekt` (ziemlich selbsterklärend) und `Berührtes Objekt`. Bei Verwendung des letzteren muss diese Aktion entweder mit einer [ConditionArea](de/components/conditions.md#conditionarea) oder einer [ConditionCollision](de/components/conditions.md#conditioncollision) verbunden sein, sonst schlägt sie fehl.
+Die Eigenschaft `Ziel` kann zwei Werte haben: `Dieses Objekt` und `Berührtes Objekt`. Bei Verwendung des letzteren muss diese Aktion entweder mit einer [ConditionArea](de/components/conditions.md#conditionarea) oder einer [ConditionCollision](de/components/conditions.md#conditioncollision) verbunden sein, sonst schlägt sie fehl.
 
-Sie haben die Möglichkeit, einen `Effekt bei Tod` anzugeben. Dies ist ein weiteres Objekt, das generiert wird, wenn das Zielobjekt zerstört wird. Dies kann ein Partikelsystem oder ein anderes Objekt sein (z. B. Trümmer, eine kaputte Version des zu zerstörenden Objekts usw.).
+Du hast die Möglichkeit, einen `Effekt bei Tod` anzugeben. Dies ist ein weiteres Objekt, das generiert wird, wenn das Zielobjekt zerstört wird. Dies kann ein Partikelsystem oder ein anderes Objekt sein (z. B. Trümmer, eine kaputte Version des zu zerstörenden Objekts usw.).
 
 ## DialogueBalloonAction
 
@@ -71,8 +71,6 @@ Sie haben die Möglichkeit, einen `Effekt bei Tod` anzugeben. Dies ist ein weite
 Das `DialogueBalloonAction`-Skript ermöglicht es, einfache Dialoge in das Spiel einzufügen. Du kannst ein Beispiel davon in der `Roguelike`-Beispielszene sehen.
 
 ![GUI DialogueBalloonAction](../../_images/de/components/actions/dialogue-balloon-example.jpg)
-
-Der erste Block von Eigenschaften (`Text`, `Hintergrundfarbe` und `Textfarbe`) ist ziemlich selbsterklärend.
 
 Wenn das `Zielobjekt` festgelegt ist, wird der Text über einem Charakter oder Objekt angezeigt. Ist dies nicht der Fall, wird der Text in der Mitte des Bildschirms angezeigt.
 
@@ -108,11 +106,13 @@ Der erste Punkt, `LEVEL NEU LADEN`, lädt nur die aktuelle Szene neu, so dass es
 
 `OnOffAction` ist eine einfache Aktion zum Ein- und Ausschalten eines Objekts, bei der die Eigenschaft `enabled` auf `true` oder `false` gesetzt wird. Du musst das Ziel unter `Betroffenes Objekt` auswählen, damit dies funktioniert.
 
+Wenn ein GameObject `enabled` auf `false` gesetzt hat, wird dieses Objekt nicht mehr dargestellt und kann selber auch nichts mehr machen. Andere Skripte können das Objekt ggf. wieder aktivieren.
+
 Mit `Nur unsichtbar machen` kannst du stattdessen einen `SpriteRenderer` ein- und ausschalten, was bedeutet, dass das Objekt immer noch Teil des Spiels ist, einschließlich etwaiger Kollisionsereignisse.
 
 `OnOffAction` "kippt immer den Schalter" und setzt die Eigenschaft `enabled` auf das Gegenteil. Dies bedeutet, dass bei der zweiten Ausführung der Aktion für dasselbe Objekt der vorherige Status wiederhergestellt wird usw.
 
-> Tipp: Wenn du ein Objekt absolut ein- und ausschalten möchtest (dh, wenn es zum zweiten Mal keinen Effekt gibt), kannst du ein reguläres UnityEvent verwenden, indem du [Eigene Aktionen](de/components/conditions.md#eigene-aktionen) für die Bedingung aktivierst und `SetActive` auf dem Ziel GameObject auswählst:
+> Tipp: Wenn du ein Objekt absolut ein- und ausschalten möchtest (d.h., wenn es zum zweiten Mal keinen Effekt gibt), kannst du ein reguläres UnityEvent verwenden, indem du [Eigene Aktionen](de/components/conditions.md#eigene-aktionen) für die Bedingung aktivierst und `SetActive` auf dem Ziel GameObject auswählst:
 > ![GUI Eigene Aktionen verwenden](../../_images/de/components/actions/use-custom-actions.jpg)
 
 ## TeleportAction

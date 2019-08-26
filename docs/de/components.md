@@ -1,6 +1,6 @@
-# Alle Skripts
+# Alle Skripte
 
-> Klicke auf die Bilder um eine ausführliche Erklärung zu erhalten.
+> Klicke auf die Bilder, um eine ausführliche Erklärung zu erhalten.
 
 ## Bewegung
 
@@ -35,7 +35,7 @@
 | [![ObjectCreatorArea](../_images/unity/ObjectCreatorArea.png ':size=128')](/de/components#objectcreatorarea) | `ObjectCreatorArea` | Erzeugt Kopien von Objekte in einem Gebiet. |
 | [![ObjectShooter](../_images/unity/ObjectShooter.png ':size=128')](/de/components#objectshooter) | `ObjectShooter` | Schießt Kopien eines Objekts in eine Richtung. |
 | [![TimedSelfDestruct](../_images/unity/TimedSelfDestruct.png ':size=128')](/de/components#timedselfdestruct) | `TimedSelfDestruct` | Das Objekt verschwindet nach einiger Zeit. |
-| [![PickUpAndHold](../_images/unity/PickUp.png ':size=128')](/de/components#pickupandhold) | `PickUpAndHold` | Heb' ein Objekt auf und trag' es herum. |
+| [![PickUpAndHold](../_images/unity/PickUp.png ':size=128')](/de/components#pickupandhold) | `PickUpAndHold` | Heb ein Objekt auf und trag es herum. |
 
 ## Bedingungen
 

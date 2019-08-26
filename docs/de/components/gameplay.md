@@ -1,6 +1,6 @@
 # Gameplay
 
-Gameplay-Skripts sind verschiedene Arten von Skripts, um Gameplay-Effekte zu erzielen. Sie handeln auf eigene Faust, das heißt, sie benötigen keine [Bedingungen](de/components/conditions.md), um sie zu aktivieren.
+Gameplay-Skripte sind verschiedene Arten von Skripte, um Gameplay-Effekte zu erzielen. Sie handeln auf eigene Faust, das heißt, sie benötigen keine [Bedingungen](de/components/conditions.md), um sie zu aktivieren.
 
 ## ObjectCreatorArea
 
@@ -28,7 +28,7 @@ Die Eigenschaft `Erstellbares Prefab` kann ein Objekt aus der Szene akzeptieren.
 
 Die Eigenschaft `Erstellungs-Geschwindigkeit` steuert das Intervall zwischen den Schüssen in Sekunden. Die `Projektilgeschwindigkeit` bestimmt die Geschwindigkeit und die `Schussrichtung` die Richtung als `Vector2`.
 
-Die Eigenschaft `Relativ zur Drehung` kann die oben genannte Richtung mit dem GameObject gedreht werden. Wenn du dieses Skript beispielsweise für ein Objekt wie ein Raumschiff verwendest, das sich dreht, ist die Schussrichtung realistisch. Wenn du diese Option deaktivierst, befindet sich die Schussrichtung im unabhängig vom Objekt.
+Die Eigenschaft `Relativ zur Drehung` kann die oben genannte Richtung mit dem GameObject gedreht werden. Wenn du dieses Skript beispielsweise für ein Objekt wie ein Raumschiff verwendest, das sich dreht, ist die Schussrichtung realistisch. Wenn du diese Option deaktivierst, ist die Schussrichtung unabhängig vom Objektdrehung.
 
 Wenn du dieses Skript anwendst, wird in der Szenenansicht ein grüner Pfeil angezeigt.
 
@@ -36,11 +36,11 @@ Wenn du dieses Skript anwendst, wird in der Szenenansicht ein grüner Pfeil ange
 
 Die Größe des Pfeils hängt nicht von der Stärke des Schusses ab.
 
-> Hinweis: Du kannst die `Projektilgeschwindigkeit` auch auf `0` setzen. Auf diese Weise kann der Spieler Objekte zurücklassen, während er sich bewegt. Lass' dich nicht durch den Namen des Skripts täuschen, in dem von "Schießen" die Rede ist: Das generierte Objekt muss kein Projektil sein!
+> Hinweis: Du kannst die `Projektilgeschwindigkeit` auch auf `0` setzen. Auf diese Weise kann der Spieler Objekte zurücklassen, während er sich bewegt. Lass dich nicht durch den Namen des Skripte täuschen, in dem von "Schießen" die Rede ist: Das generierte Objekt muss kein Projektil sein!
 
 ### Projektil IDs
 
-Endlich hat `ObjectShooter` auch die Möglichkeit, den Projektilen eine Spieler-ID zuzuweisen. Dies funktioniert in Verbindung mit dem [BulletAttribute](de/components/attributes.md#bulletattribute)-Skript, das dem Projektil-Prefab zugewiesen werden muss, das du abschießen möchtest. Dies bedeutet, dass dem richtigen Spieler Punkte zugewiesen werden, wenn das Projektil auf ein anderes Objekt mit dem Skript [DestroyForPointsAttribute](de/components/attributes#destroyforpointsattribute) trifft.
+`ObjectShooter` hat auch die Möglichkeit, den Projektilen eine Spieler-ID zuzuweisen. Dies funktioniert in Verbindung mit dem [BulletAttribute](de/components/attributes.md#bulletattribute)-Skript, das dem Projektil-Prefab zugewiesen werden muss, das du abschießen möchtest. Dies bedeutet, dass dem richtigen Spieler Punkte zugewiesen werden, wenn das Projektil auf ein anderes Objekt mit dem Skript [DestroyForPointsAttribute](de/components/attributes#destroyforpointsattribute) trifft.
 
 Um sicherzustellen, dass `ObjectShooter` die richtige ID zuweist, musst du das GameObject als `Player` oder `Player2` kennzeichnen.
 
@@ -52,7 +52,7 @@ Um sicherzustellen, dass `ObjectShooter` die richtige ID zuweist, musst du das G
 
 ![GUI PickUpAndHold](../../_images/de/components/gameplay/gui-pick-up-and-hold.jpg)
 
-Dieses Skript wird verwendet, um einem Charakter die Fähigkeit zu geben, etwas wie einen Gegenstand oder einen Ball in einem Sportspiel aufzunehmen (und fallen zu lassen). In Verbindung mit der cleveren Verwendung eines [ConditionArea](de/components/conditions.md#conditionarea)-Skripts kannst du ein Gameplay erstellen, bei dem es darum geht, ein Objekt aufzunehmen und an einen bestimmten Bereich zu liefern.
+Dieses Skript wird verwendet, um einem Charakter die Fähigkeit zu geben, etwas wie einen Gegenstand oder einen Ball in einem Sportspiel aufzunehmen (und fallen zu lassen). In Verbindung mit der cleveren Verwendung eines [ConditionArea](de/components/conditions.md#conditionarea)-Skripte kannst du ein Gameplay erstellen, bei dem es darum geht, ein Objekt aufzunehmen und an einen bestimmten Bereich zu liefern.
 
 Um ein Objekt "auswählbar" zu machen, musst du ihm das `Pickup` Tag zuweisen und ihm einen beliebigen `Collider2D` zuweisen. Wahrscheinlich möchtest du den Collider zum Auslöser machen, da sonst das Objekt mit dem Player kollidiert und schwerer zu erfassen ist. Wenn das Objekt einen `Rigidbody2D` hat, wird es auf "kinematisch" gestellt und gestoppt, bevor es dem Charakter übergeordnet wird.
 
