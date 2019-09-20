@@ -33,6 +33,14 @@ Wenn du weitere Informationen zu einem spezifischen Skript brauchst, gehe zu [Al
 1. [Unity Hub](https://store.unity.com/download) herunterladen und installieren
 2. Unity 2017.4 oder neuer installieren (im Unity Hub) _Am besten die neuste_
 
+### Deutsche Sprache installieren
+
+Damit Unity auch für dich in Deutsch ist, kannst du die Datei `de.po` (aus dem Ordner `Localization`) in den Unity `Localization` Ordner kopieren. Dieser befindet sich beispielsweise hier:
+
+```path
+C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data\Localization
+```
+
 ### Unity Playground installieren
 
 Da wir einen spezielle Version des **Unity Playground**s anbieten können wir diese nicht aus dem, in Unity eingebauten, "Asset Store" installieren.
@@ -47,6 +55,14 @@ Da wir einen spezielle Version des **Unity Playground**s anbieten können wir di
 Das Ergebnis sollte ähnlich wie dieses aussehen:
 
 ![Ergebnis](../../../_images/getting-started/result.jpg)
+
+Gegebenenfalls muss dann Unity neu gestartet werden.
+
+### Unity auf Deutsch stellen
+
+Nachdem du die zwei vorherigen Schritte erfolgreich ausgeführt hast, musst du Unity noch auf Deutsch stellen (einmalig). Hierzu musst du im Menü `Edit/Preferences` im Abschnitt `Languages` die `Language` auf `Deutsch` stellen:
+
+![Sprachauswahl](../../../_images/introduction/preferences-change-language.png)
 
 ### Grundlagen
 
