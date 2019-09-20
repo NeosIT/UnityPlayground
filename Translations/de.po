@@ -19771,7 +19771,7 @@ msgstr ""
 
 #: Editor/Mono/GameView/GameView.cs:1
 msgid "Maximize On Play"
-msgstr "Bei Spielen maximieren"
+msgstr "Beim Spielen maximieren"
 
 #: Editor/Mono/GameView/GameView.cs:1
 msgid "Mute Audio"
@@ -19779,7 +19779,7 @@ msgstr "Ton stummschalten"
 
 #: Editor/Mono/GameView/GameView.cs:1
 msgid "Stats"
-msgstr "Stats"
+msgstr "Statistiken"
 
 #: Editor/Mono/GameView/GameView.cs:1
 msgid "Frame Debugger On"

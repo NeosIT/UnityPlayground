@@ -60,7 +60,7 @@ Ein Spiel mit Unity Playground zu machen ist super einfach! Lass uns ein sehr ei
 
 ### 1. Erstellen des Spielers
 
-Ziehe zunächst ein Raumschiffbild aus dem Ordner `/Images/Spaceships` direkt in das Fenster `Hierarchie`. Da es als `Sprite` importiert wurde, wird Unity ein `GameObject` für dich erstellen. Dies wird der Spieler sein. Nennen wir das Objekt also _Raumschiff_ und kennzeichnen dieses GameObject oben im `Inspektor`-Fenster kennzeichne es als `Spieler`. Verwende dazu das Dropdown-Menü _Tag_.
+Ziehe zunächst ein Raumschiffbild aus dem Ordner `/Images/Spaceships` direkt in das Fenster `Hierarchie`. Da es als `Sprite` importiert wurde, wird Unity ein `GameObject` für dich erstellen. Dies wird der Spieler sein. Nennen wir das Objekt also _Raumschiff_ und kennzeichnen dieses GameObject oben im `Inspektor`-Fenster kennzeichne es als `Player`. Verwende dazu das Dropdown-Menü _Tag_.
 
 ![Raumschiff Inspektor](../_images/de/introduction/inspector-ship.jpg)
 
@@ -85,7 +85,7 @@ Du wirst feststellen, dass beim Hinzufügen des [Move](de/components/movement.md
 
 Jetzt müssen wir die physikalischen Werte unseres Schiffes einstellen. Bei der `RigidBody2D`-Komponente möchten wir die `Schwerkraft` auf `0` ändern, damit das Schiff nicht herunterfällt. Du kannst auch die bevorzugte Steuerungsmethode (Pfeile oder WASD) auswählen und `Drehung berücksichtigen` aktivieren (wenn das für deine Grafiken sinnvoll ist) und dann die `Richtung` auswählen. Drücke jetzt oben im Editor auf Play (:arrow_forward:), um das Spiel zu testen.
 
-Du wirst wahrscheinlich bemerken, dass das Schiff viel driftet, was die Kontrolle erschwert. Setze die `Reibung` am `Rigidbody2D` auf 10. Wenn du jetzt spielst, wirst du feststellen, dass das Driftverhalten weg ist, aber das Objekt ist auch langsamer, viel langsamer. Dies liegt daran, dass der Kraft, die sich bewegt hat, nun die Reibung entgegenwirkt.
+Du wirst wahrscheinlich bemerken, dass das Schiff viel driftet, was die Kontrolle erschwert. Setze die `Reibung` am `Rigidbody2D` auf 10. Wenn du jetzt spielst, wirst du feststellen, dass das Driftverhalten weg ist, aber das Objekt ist auch langsamer, viel langsamer. Dies liegt daran, dass der Kraft, die das Schiff bewegt, nun die Reibung entgegenwirkt.
 
 Daher müssen wir auch die Eigenschaft `Geschwindigkeit` in der [Move](de/components/movement.md#move)-Komponente anpassen. Stell es auf `8` ein und drücke erneut die Play-Taste. Du wirst sehen, dass das Schiff jetzt viel einfacher zu kontrollieren ist. Wir haben gerade unseren ersten Gameplay-Tweak gemacht! Herzlichen Glückwunsch, du bist nun ein Game-Designer!
 
@@ -95,7 +95,7 @@ Daher müssen wir auch die Eigenschaft `Geschwindigkeit` in der [Move](de/compon
 
 ### 3. Hinzufügen von Hindernissen und Kollisionen
 
-Wir haben etwas Spielbares, aber es ist nicht wirklich ein Spiel. Fügen wir einige Hindernisse hinzu, durch die das Schiff navigieren muss, indem du ein Asteroiden-Sprite aus dem Ordner `/Images` ziehst. Wie zuvor wird Unity ein GameObject für uns erstellen.
+Wir haben etwas Spielbares, aber es ist nicht wirklich ein Spiel. Fügen wir einige Hindernisse hinzu, durch die das Schiff navigieren muss, indem du ein Asteroiden-Sprite aus dem Ordner `/Images/Asteroids` ziehst. Wie zuvor wird Unity ein GameObject für uns erstellen.
 
 Wir müssen zwei Komponenten hinzufügen: `Rigidbody2D` und `PolygonCollider2D`. Der `PolygonCollider2D` bewirkt, dass dieses Objekt andere Objekte kollidieren (berühren) kann. Wir müssen diese Komponente auch zum Schiff hinzufügen.
 
@@ -107,7 +107,7 @@ Machen wir diesen Asteroiden jetzt zu einer Bedrohung. Du müsst dem Asteroiden 
 
 ![Astroid Modify Health](../_images/de/introduction/astroid-modify-health.jpg)
 
-Dann muss Schiff in der Lage sein, diesen Schaden zu erkennen. Dazu gibt es ein weiteres Skript namens [HealthSystemAttribute](de/components/attributes.md#healthsystemattribute) (immer noch unter `/Scripts/Attributes`), das wir zum Raumschiff hinzufügen müssen.
+Dann muss das Schiff in der Lage sein, diesen Schaden zu erkennen. Dazu gibt es ein weiteres Skript namens [HealthSystemAttribute](de/components/attributes.md#healthsystemattribute) (immer noch unter `/Scripts/Attributes`), das wir zum Raumschiff hinzufügen müssen.
 
 ![Schiff HealthSystemAttribute](../_images/de/components/attributes/gui-health-system-attribute.jpg)
 
@@ -117,7 +117,7 @@ Dies gibt dem Spieler nicht nur Gesundheit, sondern ermöglicht es uns, das Star
 >
 > Bevor du den Asteroiden duplizierst, solltest du ihn wahrscheinlich in ein Prefab umwandeln, damit du zu einem späteren Zeitpunkt alle Asteroiden auf einmal bearbeiten kannst.
 >
-> Wenn du nicht wissen, was ein Prefab ist, und mehr darüber erfahren möchtest, lese im [Handbuch](https://docs.unity3d.com/Manual/Prefabs.html) (Englisch) nach oder schau dir ein kurzes [Video-Tutorial](https://learn.unity.com/tutorial/essential-unity-concepts) (Englisch - Alternativen lassen sich auf YouTube problemlos finden) an.
+> Wenn du nicht weißt, was ein Prefab ist, und mehr darüber erfahren möchtest, lese im [Handbuch](https://docs.unity3d.com/Manual/Prefabs.html) (Englisch) nach oder schau dir ein kurzes [Video-Tutorial](https://learn.unity.com/tutorial/essential-unity-concepts) (Englisch - Alternativen lassen sich auf YouTube problemlos finden) an.
 >
 > Prefabs sind ein grundlegendes Konzept in Unity, wenn du ein großes Spiel entwickelst oder im Team arbeitest. Du kannst sie vorerst auch sein lassen und dich auf dein erstes Spiel konzentrieren. Später kannst du immer noch darauf zurückgreifen.
 
@@ -133,7 +133,9 @@ Nachdem du ein vollständiges Asteroidenfeld hast, ist es an der Zeit, erneut zu
 
 Worum geht es also in diesem Spiel? Nehmen wir an, wir möchten, dass das Schiff einige Sterne sammelt, ohne in die Asteroiden zu krachen. Sobald alle Sterne gesammelt sind, ist das Spiel gewonnen.
 
-Füge einen Stern aus dem Ordner `/Images` hinzu, indem du ihn in die Szene ziehst. Füge ein [Collectable](de/components/attributes.md#collectableattribute)-Skript aus dem Ordner `/Scripts/Attribute` hinzu. Dies macht den Stern zu einem Sammelobjekt und bringt dem Spieler einen Punkt ein.
+Füge einen Stern aus dem Ordner `/Images/GameElements` hinzu, indem du ihn in die Szene ziehst. Füge ein [Collectable](de/components/attributes.md#collectableattribute)-Skript aus dem Ordner `/Scripts/Attribute` hinzu. Dies macht den Stern zu einem Sammelobjekt und bringt dem Spieler einen Punkt ein.
+
+Wenn du eine Warnung erhälst, klicke auf `Polygon` und kontrolliere ob das `Ist Auslöser`-Feld des Sterns aktiv ist. Sollte dies der Fall sein kannst du den nächsten Absatz ignorieren, denn ein `PolygonCollider2D` wurde automatisch für dich hinzugefügt.
 
 Aber wie erkennen wir, ob der Stern gesammelt wurde? Wir werden wieder Kollisionen verwenden. Füge ein `PolygonCollider2D` hinzu, aber dieses Mal möchten wir es zu einem Auslöser machen. Aktiviere daher die Eigenschaft `Ist Auslöser`.
 
@@ -145,7 +147,7 @@ Aber wie erkennen wir, ob der Stern gesammelt wurde? Wir werden wieder Kollision
 
 ### 6. Gewinnbedingung
 
-Wenn du das Spiel jetzt spielst, wirst feststellen, dass der Stern vom Schiff eingesammelt wird. Zu diesem Zeitpunkt möchtest du den Stern möglicherweise auch zu einem Prefab machen (siehe Hinweis zu Prefabs oben) und ihn dann so oft duplizieren, wie du es für erforderlich hältst. Nehmen wir an, wir haben 5 in der Szene. Jetzt wollen wir sie so verteilen, dass einige leicht zu bekommen sind, während die weiteren schwieriger sind. Auf diese Weise schaffen wir auch eine zunehmende Schwierigkeit für unser kleines Spiel.
+Wenn du das Spiel jetzt spielst, wirst du feststellen, dass der Stern vom Schiff eingesammelt wird. Zu diesem Zeitpunkt möchtest du den Stern möglicherweise auch zu einem Prefab machen (siehe Hinweis zu Prefabs oben) und ihn dann so oft duplizieren, wie du es für erforderlich hältst. Nehmen wir an, wir haben 5 in der Szene. Jetzt wollen wir sie so verteilen, dass einige leicht zu bekommen sind, während die weiteren schwieriger sind. Auf diese Weise schaffen wir auch eine zunehmende Schwierigkeit für unser kleines Spiel.
 
 Schließlich musst du das UI-GameObject auswählen und im UI-Skript sicherstellen, dass der `Spieltyp` auf `Punkte` gesetzt ist und der `Erforderliche Punkte` 5 ist. Wenn dies nicht mit der Anzahl der Sterne im Spiel übereinstimmt, ist es unmöglich zu gewinnen!
 
@@ -184,7 +186,7 @@ Fast alle Logikskripte in Unity Playground verwenden Kollisionen, um Gameplay zu
 So kannst du zum Beispiel Schaden erleiden, der bei Kollisionen mit einem Feind entsteht, ein Level gewinnen, wenn du ein Objekt berührst, Münzen und Power-Ups einsammeln, indem du darauf zu läufts, oder eine Tür öffnen, indem du den Charakter reinläuft - vorausgesetzt, du hast den richtigen Schlüssel!
 Ebenso kannst du eine Dialogzeile auslösen, wenn dein Charakter einen Bereich vor einem anderen Charakter betritt (wie in der Roguelike-Beispielszene).
 
-Wenn etwas nicht wie gewünscht funktioniert, fragen dich: Habe ich die entsprechenden Collider hinzugefügt?
+Wenn etwas nicht wie gewünscht funktioniert, frage dich: Habe ich die entsprechenden Collider hinzugefügt?
 
 ### Tags
 
@@ -257,7 +259,7 @@ Das `UserInterface` ermöglicht es auch, die Art des Spiels zwischen Score, Life
 
 * Wenn der Spieler im Punktemodus die gewählte Punktzahl erreicht, wird der Gewonnen-Bildschirm angezeigt. Wenn zwei Spieler anwesend sind, zeigt die Benutzeroberfläche nur Punktzahlen an und die erste Person, die die Punktzahl erreicht, gewinnt.
 * Wenn der Spieler im Lebensmodus 0 Lebenspunkte erreicht, wird "Game Over" angezeigt. Bei zwei Spielern wird der Gesundheitszustand beider Spieler angezeigt. Es gibt keine Möglichkeit zu gewinnen.
-* Im Endlos-Modus wird kein kein "Game Over" des Spiels angezeigt und es gibt keine Möglichkeit, das Spiel zu gewinnen oder zu verlieren.
+* Im Endlos-Modus wird kein "Game Over" des Spiels angezeigt und es gibt keine Möglichkeit, das Spiel zu gewinnen oder zu verlieren.
 
 #### Eigene Spielmodi
 

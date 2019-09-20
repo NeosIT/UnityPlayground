@@ -11,7 +11,7 @@
 | [![Jump](../_images/unity/Jump.png ':size=128')](/de/components#jump) | `Jump` | Lass ein Objekt springen |
 | [![AutoMove](../_images/unity/AutoMove.png ':size=128')](/de/components#automove) | `AutoMove` | Bewege ein Objekt automatisch |
 | [![AutoRotate](../_images/unity/AutoRotation.png ':size=128')](/de/components#autorotate) | `AutoRotate` | Drehe ein Objekt automatisch |
-| [![Push](../_images/unity/PushWithButton.png ':size=128')](/de/components#push) | `Push` | Schiebe in Objekt |
+| [![Push](../_images/unity/PushWithButton.png ':size=128')](/de/components#push) | `Push` | Schiebe ein Objekt |
 | [![FollowTarget](../_images/unity/FollowTarget.png ':size=128')](/de/components#followtarget) | `FollowTarget` | Das Objekt verfolgt ein Ziel |
 | [![Patrol](../_images/unity/Patrol.png ':size=128')](/de/components#patrol) | `Patrol` | Das Objekt bewegt sich zwischen Wegpunkten |
 | [![CameraFollow](../_images/unity/CameraFollow.png ':size=128')](/de/components#camerafollow) | `CameraFollow` | Die Kamera verfolgt ein ausgewähltes Ziel |
