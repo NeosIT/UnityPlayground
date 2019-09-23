@@ -31,7 +31,14 @@ Wenn du weitere Informationen zu einem spezifischen Skript brauchst, gehe zu [Al
 > Wenn du dir unsicher beim einrichten bist, lass dir von jemanden helfen der mindestens Englisch versteht und ein Grundverständnis von Computern hat.
 
 1. [Unity Hub](https://store.unity.com/download) herunterladen und installieren
+![Unity Hub herunterladen](../../../_images/introduction/unity_hub_download.png)
+
 2. Unity 2017.4 oder neuer installieren (im Unity Hub) _Am besten die neuste_
+
+a) ![Unity Version hinzufügen](../../../_images/introduction/unity_hub_start.png)
+
+b) ![Unity Version hinzufügen](../../../_images/introduction/unity_hub_versionsauswahl.png)
+Nach einem Click auf _Next_ kann man zusätzliche Module hinzufügen. Um die Installation der deutschen Sprache zu erleichtern, solltet ihr eines der _Language Packs_ ganz unten in der Liste auswählen, auch wenn ihr es nicht benötigt.
 
 ### Deutsche Sprache installieren
 
@@ -39,6 +46,12 @@ Damit Unity auch für dich in Deutsch ist, kannst du die Datei `de.po` (aus dem 
 
 ```path
 C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data\Localization
+```
+
+Sollte es den Ordner `Localization` nicht geben erstelle ihn einfach in z.B.
+
+```path
+C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data
 ```
 
 ### Unity Playground installieren
@@ -66,7 +79,7 @@ Nachdem du die zwei vorherigen Schritte erfolgreich ausgeführt hast, musst du U
 
 ### Grundlagen
 
-Bevor du Unity Playground verwendest, sollten du dich bereits mit den Kernkonzepten von Unity vertraut gemacht haben. Eine sehr gute Ressource sind die interaktiven Lernprogramme (Englisch), die auf der Seite _Learn_, im Unity Hub finden kannst. Alternativ kannst du auch den Abschnitt Benutzeroberfläche und Grundlagen in den offiziellen Tutorials durchgehen.
+Bevor du Unity Playground verwendest, sollten du dich bereits mit den Kernkonzepten von Unity vertraut gemacht haben. Eine sehr gute Ressource sind die interaktiven Lernprogramme (Englisch), die du im Reiter _Learn_, im Unity Hub finden kannst. Alternativ kannst du auch den Abschnitt Benutzeroberfläche und Grundlagen in den offiziellen Tutorials durchgehen.
 
 ![Unity Hub Learn](../_images/introduction/unity-hub-learn.jpg)
 
@@ -230,7 +243,7 @@ Es empfiehlt sich diese Seite dann, bei einem Workshop für Anfänger, auszudruc
 
 ### Herausforderungen
 
-Zusätzlich gibt es für die "Schnellen" oder die besonders begabte auch die Möglichkeit [Herausforderungen](de/components) zu erfüllen.
+Zusätzlich gibt es für die "Schnellen" oder die besonders begabte auch die Möglichkeit [Herausforderungen](de/challenges) zu erfüllen.
 
 ### Projektstruktur
 
