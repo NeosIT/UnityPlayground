@@ -31,13 +31,13 @@ Wenn du weitere Informationen zu einem spezifischen Skript brauchst, gehe zu [Al
 > Wenn du dir unsicher beim einrichten bist, lass dir von jemanden helfen der mindestens Englisch versteht und ein Grundverständnis von Computern hat.
 
 1. [Unity Hub](https://store.unity.com/download) herunterladen und installieren
-![Unity Hub herunterladen](../../../_images/introduction/unity_hub_download.png)
+![Unity Hub herunterladen](../_images/introduction/unity_hub_download.png)
 
 2. Unity 2017.4 oder neuer installieren (im Unity Hub) _Am besten die neuste_
 
-a) ![Unity Version hinzufügen](../../../_images/introduction/unity_hub_start.png)
+a) ![Unity Version hinzufügen](../_images/introduction/unity_hub_start.png)
 
-b) ![Unity Version hinzufügen](../../../_images/introduction/unity_hub_versionsauswahl.png)
+b) ![Unity Version auswählen](../_images/introduction/unity_hub_versionsauswahl.png)
 Nach einem Click auf _Next_ kann man zusätzliche Module hinzufügen. Um die Installation der deutschen Sprache zu erleichtern, solltet ihr eines der _Language Packs_ ganz unten in der Liste auswählen, auch wenn ihr es nicht benötigt.
 
 ### Deutsche Sprache installieren
@@ -59,7 +59,7 @@ C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data
 Da wir einen spezielle Version des **Unity Playground**s anbieten können wir diese nicht aus dem, in Unity eingebauten, "Asset Store" installieren.
 
 1. Gehe auf die [Github Seite von NeosIT's Unity Playground](https://github.com/NeosIT/UnityPlayground/) und lade das Projekt als ZIP herunter.
-![Github ZIP](../../../_images/getting-started/github-download.jpg)
+![Github ZIP](../_images/getting-started/github-download.jpg)
 2. Diese .zip-Datei dann an einem beliebigen Ort entpacken (bspw. auf dem Desktop)
 3. Jetzt diesen Ordner mit dem Unity Hub öffnen _Add Button drücken_
 
@@ -67,7 +67,7 @@ Da wir einen spezielle Version des **Unity Playground**s anbieten können wir di
 
 Das Ergebnis sollte ähnlich wie dieses aussehen:
 
-![Ergebnis](../../../_images/getting-started/result.jpg)
+![Ergebnis](../_images/getting-started/result.jpg)
 
 Gegebenenfalls muss dann Unity neu gestartet werden.
 
@@ -75,7 +75,7 @@ Gegebenenfalls muss dann Unity neu gestartet werden.
 
 Nachdem du die zwei vorherigen Schritte erfolgreich ausgeführt hast, musst du Unity noch auf Deutsch stellen (einmalig). Hierzu musst du im Menü `Edit/Preferences` im Abschnitt `Languages` die `Language` auf `Deutsch` stellen:
 
-![Sprachauswahl](../../../_images/introduction/preferences-change-language.png)
+![Sprachauswahl](../_images/introduction/preferences-change-language.png)
 
 ### Grundlagen
 
