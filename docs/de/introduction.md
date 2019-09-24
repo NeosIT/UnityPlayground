@@ -56,12 +56,20 @@ C:\Program Files\Unity\Hub\Editor\2019.2.0f1\Editor\Data
 
 ### Unity Playground installieren
 
+!> Wenn du bereits einen Projektordner hast (z.B. durch einen Kids4IT-Workshop), kannst du direkt zu Schritt 3 springen.
+
 Da wir einen spezielle Version des **Unity Playground**s anbieten können wir diese nicht aus dem, in Unity eingebauten, "Asset Store" installieren.
 
 1. Gehe auf die [Github Seite von NeosIT's Unity Playground](https://github.com/NeosIT/UnityPlayground/) und lade das Projekt als ZIP herunter.
 ![Github ZIP](../_images/getting-started/github-download.jpg)
 2. Diese .zip-Datei dann an einem beliebigen Ort entpacken (bspw. auf dem Desktop)
-3. Jetzt diesen Ordner mit dem Unity Hub öffnen _Add Button drücken_
+3. Jetzt diesen Ordner mit dem Unity Hub öffnen
+
+a) Vorhandenes Projekt hinzufügen ![Unity Hub Projektauswahl](../_images/getting-started/unity_hub_project_view.png)
+
+b) Projektordner auswählen ![Ordnerauswahl](../_images/getting-started/explorer.png)
+
+c) Nun nur noch das Projekt im Unity Hub auswählen.
 
 !> Falls eine Warnung bezüglich einer Unterschiedlichen Unity Version kommt, kann diese ignoriert werden, solange man eine größere Version hat.
 
